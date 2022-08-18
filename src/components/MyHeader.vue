@@ -61,7 +61,8 @@
 								<a-select class="search-sel" v-model:value="selectKey" size="large"
 									:options="options" />
 								<div class="search-form">
-									<a-input class="search-input" v-model:value="searchKey" placeholder="Search Products Here..."></a-input>
+									<a-input class="search-input" v-model:value="searchKey"
+										placeholder="Search Products Here..."></a-input>
 									<a-button class="search-btn" @click="onSearch">
 										<template #icon>
 											<search-outlined />
@@ -99,14 +100,22 @@
 									</div>
 									<ul class="shopping-list">
 										<li>
-											<a href="#" class="remove" title="Remove this item"><close-outlined /></a>
-											<a class="cart-img" href="#"><img src="https://wpthemesgrid.com/themes/eshop/images/product-1.jpg" alt="#"></a>
+											<a href="#" class="remove" title="Remove this item">
+												<close-outlined />
+											</a>
+											<a class="cart-img" href="#"><img
+													src="https://wpthemesgrid.com/themes/eshop/images/product-1.jpg"
+													alt="#"></a>
 											<h4><a href="#">Woman Ring</a></h4>
 											<p class="quantity">1x - <span class="amount">$99.00</span></p>
 										</li>
 										<li>
-											<a href="#" class="remove" title="Remove this item"><close-outlined /></a>
-											<a class="cart-img" href="#"><img src="https://wpthemesgrid.com/themes/eshop/images/product-2.jpg" alt="#"></a>
+											<a href="#" class="remove" title="Remove this item">
+												<close-outlined />
+											</a>
+											<a class="cart-img" href="#"><img
+													src="https://wpthemesgrid.com/themes/eshop/images/product-2.jpg"
+													alt="#"></a>
 											<h4><a href="#">Woman Necklace</a></h4>
 											<p class="quantity">1x - <span class="amount">$35.00</span></p>
 										</li>
@@ -126,12 +135,131 @@
 				</a-row>
 			</div>
 		</div>
+
+		<div class="header-inner">
+			<div class="container">
+				<div class="cat-nav-head">
+					<a-row>
+						<a-col :lg="6">
+							<div class="all-category">
+								<h3 class="cat-heading">
+									<menu-outlined />CATEGORIES
+								</h3>
+								<ul class="main-category">
+									<li><a href="#">New Arrivals
+											<right-outlined />
+										</a>
+										<ul class="sub-category">
+											<li><a href="#">accessories</a></li>
+											<li><a href="#">best selling</a></li>
+											<li><a href="#">top 100 offer</a></li>
+											<li><a href="#">sunglass</a></li>
+											<li><a href="#">watch</a></li>
+											<li><a href="#">man’s product</a></li>
+											<li><a href="#">ladies</a></li>
+											<li><a href="#">westrn dress</a></li>
+											<li><a href="#">denim </a></li>
+										</ul>
+									</li>
+									<li class="main-mega"><a href="#">best selling
+											<right-outlined />
+										</a>
+										<ul class="mega-menu">
+											<li class="single-menu">
+												<a href="#" class="title-link">Shop Kid's</a>
+												<!-- <div class="image">
+													<img src="static/picture/mega-menu1.jpg" alt="#">
+												</div> -->
+												<div class="inner-link">
+													<a href="#">Kids Toys</a>
+													<a href="#">Kids Travel Car</a>
+													<a href="#">Kids Color Shape</a>
+													<a href="#">Kids Tent</a>
+												</div>
+											</li>
+											<li class="single-menu">
+												<a href="#" class="title-link">Shop Men's</a>
+												<!-- <div class="image">
+													<img src="static/picture/mega-menu2.jpg" alt="#">
+												</div> -->
+												<div class="inner-link">
+													<a href="#">Watch</a>
+													<a href="#">T-shirt</a>
+													<a href="#">Hoodies</a>
+													<a href="#">Formal Pant</a>
+												</div>
+											</li>
+											<li class="single-menu">
+												<a href="#" class="title-link">Shop Women's</a>
+												<!-- <div class="image">
+													<img src="static/picture/mega-menu3.jpg" alt="#">
+												</div> -->
+												<div class="inner-link">
+													<a href="#">Ladies Shirt</a>
+													<a href="#">Ladies Frog</a>
+													<a href="#">Ladies Sun Glass</a>
+													<a href="#">Ladies Watch</a>
+												</div>
+											</li>
+										</ul>
+									</li>
+									<li><a href="#">accessories</a></li>
+									<li><a href="#">top 100 offer</a></li>
+									<li><a href="#">sunglass</a></li>
+									<li><a href="#">watch</a></li>
+									<li><a href="#">man’s product</a></li>
+									<li><a href="#">ladies</a></li>
+									<li><a href="#">westrn dress</a></li>
+									<li><a href="#">denim </a></li>
+								</ul>
+							</div>
+						</a-col>
+						<a-col :lg="18">
+							<div class="menu-area">
+								<!-- Main Menu -->
+								<nav class="navbar navbar-expand-lg">
+									<div class="navbar-collapse">
+										<div class="nav-inner">
+											<ul class="nav main-menu menu navbar-nav">
+												<li class="active"><a href="#">Home</a></li>
+												<li><a href="#">Product</a></li>
+												<li><a href="#">Service</a></li>
+												<li><a href="#">Shop
+														<down-outlined /><span class="new">New</span>
+													</a>
+													<ul class="dropdown">
+														<li><a href="cart.html">Cart</a></li>
+														<li><a href="checkout.html">Checkout</a></li>
+													</ul>
+												</li>
+												<li><a href="#">Pages</a></li>
+												<li><a href="#">Blog
+														<down-outlined />
+													</a>
+													<ul class="dropdown">
+														<li><a href="blog-single-sidebar.html">Blog Single Sidebar</a>
+														</li>
+													</ul>
+												</li>
+												<li><a href="contact.html">Contact Us</a></li>
+											</ul>
+										</div>
+									</div>
+								</nav>
+								<!--/ End Main Menu -->
+							</div>
+
+						</a-col>
+					</a-row>
+				</div>
+			</div>
+		</div>
 	</header>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { PhoneOutlined, MailOutlined, EnvironmentOutlined, ClockCircleOutlined, UserOutlined, PoweroffOutlined, SearchOutlined, HeartOutlined, ShoppingOutlined, CloseOutlined } from '@ant-design/icons-vue'
+import { PhoneOutlined, MailOutlined, EnvironmentOutlined, ClockCircleOutlined, UserOutlined, PoweroffOutlined, SearchOutlined, HeartOutlined, ShoppingOutlined, CloseOutlined, MenuOutlined, RightOutlined, DownOutlined } from '@ant-design/icons-vue'
 
 export default defineComponent({
 	setup() {
@@ -152,7 +280,7 @@ export default defineComponent({
 		}
 	},
 	components: {
-		PhoneOutlined, MailOutlined, EnvironmentOutlined, ClockCircleOutlined, UserOutlined, PoweroffOutlined, SearchOutlined, HeartOutlined, ShoppingOutlined, CloseOutlined
+		PhoneOutlined, MailOutlined, EnvironmentOutlined, ClockCircleOutlined, UserOutlined, PoweroffOutlined, SearchOutlined, HeartOutlined, ShoppingOutlined, CloseOutlined, MenuOutlined, RightOutlined, DownOutlined
 	}
 })
 </script>
@@ -389,6 +517,9 @@ export default defineComponent({
 	margin-left: auto;
 }
 
+.ant-select-item-option {
+	line-height: 32px;
+}
 
 /* Topbar Left Nav */
 .header.shop .top-left .list-main li:first-child {
@@ -607,5 +738,506 @@ export default defineComponent({
 	background: @primary-color;
 	color: #fff;
 }
+
 /* Shopping Cart end */
+
+/* 分类栏 导航 */
+.anticon-menu {
+	margin-right: 15px;
+}
+.ant-col {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.header.shop .all-category {
+	color: #fff;
+	background: transparent;
+	position: relative;
+	background: @primary-color;
+}
+
+.header.shop .all-category h3 {
+	padding: 20px 25px;
+}
+
+.header.shop .cat-heading {
+	font-size: 20px;
+	color: #fff;
+}
+
+.header.shop .cat-heading i {
+	color: #fff;
+	display: inline-block;
+	margin-right: 15px;
+	font-size: 22px;
+}
+
+.header.shop .main-category {
+	position: absolute;
+	left: 0;
+	top: 64px;
+	background: #fff;
+	z-index: 1;
+	width: 100%;
+	-webkit-box-shadow: 0px 5px 15px #0000000a;
+	-moz-box-shadow: 0px 5px 15px #0000000a;
+	box-shadow: 0px 5px 15px #0000000a;
+}
+
+.header.shop .main-category li {
+	display: block;
+	border-bottom: 1px solid #f6f6f6;
+	position: relative;
+}
+
+.header.shop .main-category li:last-child {
+	border: none;
+}
+
+.header.shop .main-category li a {
+	font-size: 14px;
+	font-weight: 600;
+	color: #333;
+	padding: 13px 25px 13px 25px;
+	display: block;
+	text-transform: uppercase;
+}
+
+.header.shop .main-category li a i {
+	display: inline-block;
+	float: right;
+}
+
+.header.shop .sub-category {
+	background: #fff;
+	width: 220px;
+	position: absolute;
+	left: 238px;
+	top: 0;
+	z-index: 999999;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	border-left: 3px solid @primary-color;
+	-webkit-box-shadow: 0px 5px 15px #0000000a;
+	-moz-box-shadow: 0px 5px 15px #0000000a;
+	box-shadow: 0px 5px 15px #0000000a;
+}
+
+.header.shop .main-category li:hover .sub-category {
+	opacity: 1;
+	visibility: visible;
+}
+
+.header.shop .main-category li a {
+	text-transform: capitalize;
+	font-weight: 400;
+}
+
+.header.shop .main-category li a:hover {
+	color: @primary-color;
+}
+
+.header.shop .main-category .main-mega {
+	position: relative;
+}
+
+.header.shop .main-category li .mega-menu {
+	width: 850px;
+	display: inline-block;
+	height: auto;
+	position: absolute;
+	left: 238px;
+	top: 0;
+	z-index: 99999;
+	background: #fff;
+	border: none;
+	padding: 30px;
+	border-left: 3px solid @primary-color;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+
+.header.shop .main-category li:hover .mega-menu {
+	opacity: 1;
+	visibility: visible;
+}
+
+.header.shop .main-category li .mega-menu .single-menu {
+	width: 33%;
+	display: inline-block;
+	border: none;
+	padding: 0;
+	padding-right: 20px;
+}
+
+.header.shop .main-category li .mega-menu .single-menu a {
+	padding: 0;
+}
+
+.header.shop .main-category li .mega-menu .single-menu .image {
+	overflow: hidden;
+}
+
+.header.shop .main-category li .mega-menu .single-menu img {
+	display: block;
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+}
+
+.header.shop .main-category li .mega-menu .single-menu .image:hover img {
+	transform: scale(1.1);
+}
+
+.header.shop .main-category li .mega-menu .single-menu .title-link {
+	margin-bottom: 20px;
+	background: @primary-color;
+	color: #fff;
+	padding: 2px 13px;
+	border-radius: 3px;
+	display: inline-block;
+	font-size: 14px;
+}
+
+.header.shop .main-category li .mega-menu .single-menu .title-link:hover {
+	background: #333;
+	color: #fff;
+}
+
+.header.shop .main-category li .mega-menu .single-menu .inner-link {
+	margin-top: 25px;
+}
+
+.header.shop .main-category li .mega-menu .single-menu .inner-link a {
+	margin-bottom: 10px;
+}
+
+.header.shop .main-category li .mega-menu .single-menu .inner-link a:hover {
+	color: @primary-color;
+	background: transparent;
+}
+
+.header.shop .main-category li .mega-menu .single-menu .inner-link a:last-child {
+	margin-bottom: 0px;
+}
+
+.header.shop .menu-origin {
+	float: none;
+	display: inline-block;
+	float: right;
+}
+
+.header.shop .nav li {
+	margin-right: 40px;
+	float: left;
+	position: relative;
+}
+
+.header.shop .nav li {
+	margin-right: 5px;
+	position: relative;
+	float: none;
+}
+
+.header.shop .nav li:last-child {
+	margin-right: 0;
+}
+
+.header.shop .nav li .new {
+	background: @primary-color;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 9px;
+	position: absolute;
+	left: 21px;
+	top: 2px;
+	font-weight: 500;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+	display: block;
+}
+
+.header.shop .nav li a {
+	color: #fff;
+	text-transform: capitalize;
+	font-size: 15px;
+	padding: 20px 15px;
+	font-weight: 500;
+	display: block;
+	position: relative;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+
+.header.shop .nav li:hover a {
+	color: #fff;
+	background: @primary-color;
+}
+
+.header.shop .nav li.active a {
+	color: #fff;
+	background: @primary-color;
+}
+
+.header.shop .nav .dropdown li {
+	margin: 0;
+}
+
+.header.shop .nav li .dropdown li:hover a {
+	background: @primary-color;
+}
+
+.header.shop .nav li .dropdown li a {
+	color: #333;
+	padding: 8px 15px;
+	font-weight: 400;
+	background: #fff;
+}
+
+.header.shop .nav li .dropdown li a {
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.header.shop .nav li .dropdown li a:hover {
+	color: #fff;
+}
+
+.header.shop .nav li .dropdown li .dropdown.sub-dropdown li a:hover {
+	background: @primary-color;
+}
+
+/* Main Menu */
+@media (min-width: 992px) {
+	.navbar-expand-lg .navbar-nav {
+		-ms-flex-direction: row;
+		flex-direction: row;
+	}
+}
+
+.navbar-nav {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+}
+
+.navbar-expand-lg .navbar-collapse {
+	display: block !important;
+}
+
+/* Dropdown Menu */
+.header .nav li .dropdown {
+	background: #fff;
+	width: 220px;
+	position: absolute;
+	top: 100%;
+	z-index: 999;
+	-webkit-box-shadow: 0px 3px 5px #3333334d;
+	-moz-box-shadow: 0px 3px 5px #3333334d;
+	box-shadow: 0px 3px 5px #3333334d;
+	transform-origin: 0 0 0;
+	transform: scaleY(0.2);
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+	opacity: 0;
+	visibility: hidden;
+	padding: 10px;
+	left: 0;
+	margin: 0;
+}
+
+.header .nav li:hover .dropdown {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0px);
+}
+
+.header .nav li .dropdown li {
+	float: none;
+	margin: 0;
+}
+
+.header .nav li .dropdown li a {
+	padding: 8px 15px;
+	color: #666;
+	display: block;
+	font-weight: 400;
+	text-transform: capitalize;
+	background: transparent;
+}
+
+.header .nav li .dropdown li a:before {
+	display: none;
+}
+
+.header .nav li .dropdown li:last-child a {
+	border-bottom: 0px;
+}
+
+.header .nav li .dropdown li:hover a {
+	color: #fff;
+	background: #F7941D;
+}
+
+.header .nav li .dropdown li a:hover {
+	border-color: transparent;
+}
+
+.header .nav li .dropdown li i {
+	float: right;
+	margin-top: 8px;
+	font-size: 10px;
+	z-index: 5;
+}
+
+.header .nav li .dropdown.sub-dropdown {
+	background: #fff;
+	width: 220px;
+	position: absolute;
+	left: 186px;
+	top: 0;
+	z-index: 999;
+	-webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 3px 5px #3333334d;
+	transform-origin: 0 0 0;
+	transform: scaleY(0.2);
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+	opacity: 0;
+	visibility: hidden;
+	padding: 10px;
+}
+
+.header .nav li .dropdown li:hover .dropdown.sub-dropdown {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0px);
+}
+
+.header .nav li .dropdown.sub-dropdown li a {
+	padding: 8px 15px;
+	color: #666;
+	display: block;
+	font-weight: 400;
+	text-transform: capitalize;
+	background: transparent;
+}
+
+.header .nav li .dropdown li:hover .dropdown.sub-dropdown li a {
+	background: transparent;
+}
+
+.header .nav li .dropdown li .dropdown.sub-dropdown li a:hover {
+	color: #fff;
+	background: #F7941D;
+}
+
+.header .nav li .dropdown.sub-dropdown li:last-child a {
+	border-bottom: 0px solid;
+}
+
+.mobile-search {
+	display: none;
+}
+
+/* Header Sticky */
+.header .header-inner {
+	width: 100%;
+	z-index: 999;
+}
+
+.header.sticky.off-sticky {
+	display: none;
+}
+
+.header.sticky .all-category {}
+
+.header.sticky .all-category h3 {
+	cursor: pointer;
+
+}
+
+.header.sticky .all-category .main-category {
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+
+.header.sticky .all-category:hover .main-category {
+	opacity: 1;
+	visibility: visible;
+}
+
+.header.sticky .header-inner .nav li a {
+	color: #333;
+}
+
+.header.sticky.v3 .header-inner .nav li a {
+	color: #fff;
+}
+
+.header.sticky .header-inner .nav li:hover a {
+	color: #fff;
+}
+
+.header.sticky.v2 .header-inner .nav li:hover a {
+	color: #F7941D;
+}
+
+.header.sticky .header-inner .nav li .dropdown li a {
+	color: #333;
+}
+
+.header.sticky.v2 .header-inner .nav li .dropdown li a {
+	color: #333;
+}
+
+.header.sticky .header-inner .nav li .dropdown li a:hover {
+	color: #fff;
+}
+
+.header.sticky .header-inner .nav li.active a {
+	color: #fff;
+}
+
+.header.sticky .header-inner {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #fff;
+	animation: fadeInDown 1s both 0.2s;
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+	z-index: 999;
+}
+
+.header.sticky.v3 .header-inner {
+	box-shadow: none;
+}
+
+.header.sticky.v3 .navbar-expand-lg .navbar-collapse {
+	animation: fadeInDown 1s both 0.2s;
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
 </style>
