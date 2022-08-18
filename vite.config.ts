@@ -22,8 +22,8 @@ export default defineConfig({
     preprocessorOptions: {
       less: {
         modifyVars: { // 在这里自定义主题色等样式
-          'primary-color': '#f7941d',
-          'link-color': '#333',//hover: #F7941D
+          'primary-color': '#32B87D',
+          'link-color': '#333',
           'border-radius-base': '2px',
         },
         javascriptEnabled: true,
