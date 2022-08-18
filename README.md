@@ -1,6 +1,11 @@
 # 『I have』校园二手交易平台
 
-基于[科大二手工坊]()的V2.0版本
+前端：
+
+![images](https://img.shields.io/badge/vue-3.2-green)
+![images](https://img.shields.io/badge/AntDesign-3.2-blue)
+
+基于[科大二手工坊](https://github.com/lvr1997/kd-second-hand-workshop)的V2.0版本
 
 > 写在前面：本项目的灵感是来源于我的2019年毕业设计科大二手工坊， 当时科大二手工坊是基于SSM框架构建。
 > 而如今现在由于自己个人发展规划的变更，技术和项目模块上也做了较大改变，也当做是对我毕业这么长时间以来 学习上的一些总结吧。 
@@ -27,6 +32,7 @@
 
 [x]项目搭建
 [ ]页面布局
+[ ]使用Easymock模拟数据
 
 ## 项目二次开发
 
