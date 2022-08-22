@@ -31,6 +31,12 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- 左右切换箭头 -->
+                            <div class="tab-nav" v-show="false">
+                                <div class="tab-prev"><left-outlined /></div>
+                                <div class="tab-next"><right-outlined /></div>
+                            </div>
                         </div>
                     </div>
                 </a-col>
@@ -42,6 +48,8 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
 import ProductItem from '../ProductItem.vue';
+
+import { LeftOutlined, RightOutlined } from '@ant-design/icons-vue'
 
 import p5 from '../../assets/images/goods/p5.jpg';
 import p7 from '../../assets/images/goods/p7.jpg';
@@ -174,6 +182,37 @@ function tabClick(cid: number) {
     background: @primary-color;
     color: #fff;
     border-color: transparent;
+}
+
+.tab-content {
+    position: relative;
+    .tab-nav {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        margin-top: -25px;
+        text-align: center;
+        .tab-prev,.tab-next {
+            height: 60px;
+            width: 30px;
+            line-height: 58px;
+            background: #fff;
+            color: #333;
+            position: absolute;
+            margin: 0;
+            font-size: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0px 0px 10px #3333331c
+        }
+        .tab-prev {
+            left: 0;
+        }
+        .tab-next {
+            right: 0;
+        }
+    }
 }
 
 .tab-single {
