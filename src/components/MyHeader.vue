@@ -9,10 +9,10 @@
 						<div class="top-left">
 							<ul class="list-main">
 								<li>
-									<phone-outlined :style="{ color: '#32B87D' }" /> +060 (800) 801-582
+									<phone-outlined :style="{ color: '#32B87D' }" /> 有关项目问题请联系 →
 								</li>
 								<li>
-									<mail-outlined :style="{ color: '#32B87D' }" /> support@shophub.com
+									<mail-outlined :style="{ color: '#32B87D' }" /> lv_alrily188@outlook.com
 								</li>
 							</ul>
 						</div>
@@ -23,16 +23,16 @@
 						<div class="right-content">
 							<ul class="list-main">
 								<li>
-									<environment-outlined :style="{ color: '#32B87D' }" /> Store location
+									<environment-outlined :style="{ color: '#32B87D' }" /> 北京
 								</li>
 								<li>
-									<clock-circle-outlined :style="{ color: '#32B87D' }" /> <a href="#">Daily deal</a>
+									<clock-circle-outlined :style="{ color: '#32B87D' }" /> <a href="#">7+24h</a>
 								</li>
 								<li>
 									<user-outlined :style="{ color: '#32B87D' }" /> <a href="#">My account</a>
 								</li>
 								<li>
-									<poweroff-outlined :style="{ color: '#32B87D' }" /> <a href="javascript:;">Login</a>
+									<poweroff-outlined :style="{ color: '#32B87D' }" /> <a href="javascript:;">登录/退出</a>
 								</li>
 							</ul>
 						</div>
@@ -221,27 +221,19 @@
 									<div class="navbar-collapse">
 										<div class="nav-inner">
 											<ul class="nav main-menu menu navbar-nav">
-												<li class="active"><a href="#">Home</a></li>
-												<li><a href="#">Product</a></li>
-												<li><a href="#">Service</a></li>
-												<li><a href="#">Shop
+												<li class="active"><a href="#">首页</a></li>
+												<li><a href="#">买闲置</a></li>
+												<li><a href="#">服务</a></li>
+												<li><a href="#">小铺
 														<down-outlined /><span class="new">New</span>
 													</a>
 													<ul class="dropdown">
-														<li><a href="cart.html">Cart</a></li>
-														<li><a href="checkout.html">Checkout</a></li>
+														<li><a href="cart.html">我的小铺</a></li>
+														<li><a href="checkout.html">订单管理</a></li>
 													</ul>
 												</li>
-												<li><a href="#">Pages</a></li>
-												<li><a href="#">Blog
-														<down-outlined />
-													</a>
-													<ul class="dropdown">
-														<li><a href="blog-single-sidebar.html">Blog Single Sidebar</a>
-														</li>
-													</ul>
-												</li>
-												<li><a href="contact.html">Contact Us</a></li>
+												<li><a href="#">树洞</a></li>
+												<li><a href="contact.html">联系我们</a></li>
 											</ul>
 										</div>
 									</div>
@@ -745,10 +737,12 @@ export default defineComponent({
 .anticon-menu {
 	margin-right: 15px;
 }
+
 .ant-col {
 	padding-left: 15px;
 	padding-right: 15px;
 }
+
 .header.shop .all-category {
 	color: #fff;
 	background: transparent;
@@ -962,6 +956,18 @@ export default defineComponent({
 	line-height: 18px;
 	text-align: center;
 	display: block;
+	padding: 0px 9px;
+
+	&::before {
+		position: absolute;
+		content: "";
+		left: 4px;
+		bottom: -8px;
+		border: 4px solid @primary-color;
+		border-bottom-color: transparent;
+		border-left-color: transparent;
+		border-right-color: transparent;
+	}
 }
 
 .header.shop .nav li a {
