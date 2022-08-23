@@ -52,7 +52,7 @@
     </section>
 </template>
 
-<style>
+<style lang="less" scoped>
 .shop-blog.grid .shop-single-blog {
     margin-top: 30px;
 }
@@ -84,7 +84,7 @@
 }
 
 .shop-blog .shop-single-blog .content .title:hover {
-    color: #F7941D;
+    color: @primary-color;
 }
 
 .shop-blog .shop-single-blog .content .date {
@@ -103,7 +103,7 @@
 }
 
 .shop-blog .shop-single-blog .content .more-btn:hover {
-    color: #F7941D;
+    color: @primary-color;
 }
 
 /* Related Product */
@@ -158,7 +158,7 @@
     bottom: -1px;
     height: 100%;
     width: 3px;
-    background: #F7941D;
+    background: @primary-color;
 }
 
 .main-sidebar .single-widget:last-child {
@@ -206,7 +206,7 @@
 }
 
 .main-sidebar .search .button:hover {
-    background: #F7941D;
+    background: @primary-color;
     color: #fff;
 }
 
@@ -232,7 +232,7 @@
 }
 
 .main-sidebar .categor-list li a:hover {
-    color: #F7941D;
+    color: @primary-color;
     padding-left: 7px;
 }
 
@@ -298,7 +298,7 @@
 }
 
 .main-sidebar .single-post .content h5 a:hover {
-    color: #F7941D;
+    color: @primary-color;
 }
 
 .main-sidebar .single-post .content .comment {}
@@ -345,7 +345,7 @@
 
 .main-sidebar .side-tags .tag a:hover {
     color: #fff;
-    background: #F7941D;
+    background: @primary-color;
     border-color: transparent;
 }
 
@@ -391,7 +391,7 @@
 .main-sidebar .newsletter .letter-inner .form-inner a {
     height: 42px;
     width: 100%;
-    background: #F7941D;
+    background: @primary-color;
     color: #fff;
     font-size: 14px;
     display: block;
@@ -447,7 +447,7 @@
 }
 
 .blog-single .blog-meta .author i {
-    color: #F7941D;
+    color: @primary-color;
     margin-right: 10px;
     font-size: 13px;
 }
@@ -475,11 +475,11 @@
 
 .blog-single .blog-meta span a i {
     margin-right: 10px;
-    color: #F7941D;
+    color: @primary-color;
 }
 
 .blog-single .blog-meta span a:hover {
-    color: #F7941D;
+    color: @primary-color;
 }
 
 .blog-single .content p {
@@ -502,12 +502,12 @@
     color: #555;
     border: none;
     margin-bottom: 25px;
-    border-left: 3px solid #F7941D;
+    border-left: 3px solid @primary-color;
 }
 
 .blog-single blockquote i {
     font-size: 30px;
-    color: #F7941D;
+    color: @primary-color;
     position: absolute;
     left: 20px;
     top: 20px;
@@ -555,7 +555,7 @@
 
 .blog-single .share-social .content-tags .tag-inner li a:hover {
     color: #fff;
-    background: #F7941D;
+    background: @primary-color;
 }
 
 /* Comments */
@@ -581,7 +581,7 @@
     bottom: -1px;
     height: 100%;
     width: 3px;
-    background: #F7941D;
+    background: @primary-color;
 }
 
 .blog-single .comments {}
@@ -657,7 +657,7 @@
 }
 
 .blog-single .single-comment .content a:hover {
-    color: #F7941D;
+    color: @primary-color;
 }
 
 /* Comment Form */
@@ -684,7 +684,7 @@
     bottom: -1px;
     height: 100%;
     width: 3px;
-    background: #F7941D;
+    background: @primary-color;
 }
 
 .blog-single .reply .form-group {

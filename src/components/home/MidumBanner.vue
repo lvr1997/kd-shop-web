@@ -45,21 +45,25 @@
 	overflow:hidden;
     .section-inner {
         width: 100%;
-        padding-left: 15px;
-        padding-right: 15px;
+		height: 100%;
         margin-left: auto;
         margin-right: auto;
     }
 }
 .cown-down .padding-right{
+	padding-left: 0;
 	padding-right:0;
 }
 .cown-down .padding-left{
 	padding-left:0;
+	padding-right: 0;
+}
+.cown-down .image {
+	overflow: hidden;
 }
 .cown-down .image img {
 	width:100%;
-	height:100%;
+	height:515px
 }
 .cown-down .content {
 	text-align: center;
