@@ -16,7 +16,7 @@ import MyFooter from './components/MyFooter.vue'
   <MyFooter />
 </template>
 
-<style scoped>
+<style lang="less">
 .ant-back-top {
   right: 10px;
 }
@@ -30,4 +30,10 @@ import MyFooter from './components/MyFooter.vue'
   text-align: center;
   font-size: 20px;
 }
+
+@font-face {
+  font-family: "Poppins Bold";
+  src: url("./assets/fonts/Poppins-Bold.ttf");
+}
+
 </style>

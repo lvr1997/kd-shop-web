@@ -9,10 +9,11 @@
             <p>Please register in order to checkout more quickly</p>
 
             <a-form
+              layout="vertical"
               :model="formState"
               name="basic"
               :label-col="{ span: 8 }"
-              :wrapper-col="{ span: 16 }"
+              :wrapper-col="{ span: 24 }"
               autocomplete="off"
               @finish="onFinish"
               @finishFailed="onFinishFailed"
@@ -22,7 +23,7 @@
                 name="username"
                 :rules="[{ required: true, message: 'Please input your username!' }]"
               >
-                <a-input v-model:value="formState.username" />
+                <a-input v-model:value="formState.username" size="large"/>
               </a-form-item>
 
               <a-form-item
@@ -30,15 +31,16 @@
                 name="password"
                 :rules="[{ required: true, message: 'Please input your password!' }]"
               >
-                <a-input-password v-model:value="formState.password" />
+                <a-input-password v-model:value="formState.password" size="large"/>
               </a-form-item>
 
-              <a-form-item name="remember" :wrapper-col="{ offset: 8, span: 16 }">
+              <a-form-item name="remember" :wrapper-col="{ offset: 0, span: 24 }">
                 <a-checkbox v-model:checked="formState.remember">Remember me</a-checkbox>
+                <a style="float: right" href="#">Forget your password?</a>
               </a-form-item>
 
-              <a-form-item :wrapper-col="{ offset: 8, span: 16 }">
-                <a-button type="primary" html-type="submit">Submit</a-button>
+              <a-form-item :wrapper-col="{ offset: 0, span: 16 }">
+                <a-button type="primary" html-type="submit">Login</a-button>
               </a-form-item>
             </a-form>
           </div>
