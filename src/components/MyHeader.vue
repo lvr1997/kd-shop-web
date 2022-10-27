@@ -152,7 +152,7 @@
       <div class="container">
         <div class="cat-nav-head">
           <a-row>
-            <a-col v-if="$route.path == '/'" :lg="6">
+            <a-col v-if="$route.path == '/home'" :lg="6">
               <div class="all-category">
                 <h3 class="cat-heading"><menu-outlined />CATEGORIES</h3>
                 <ul class="main-category">

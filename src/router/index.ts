@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/home/index.vue'
 import Login from '../views/Login.vue'
-import Admin from '@/views/admin/index.vue'
+import Admin from '../views/admin/index.vue'
 import Layout from '../layout/Layout.vue'
 
 const router = createRouter({
@@ -41,6 +41,11 @@ const router = createRouter({
           path: '/checkout',
           name: 'Checkout',
           component: () => import('../views/checkout/checkout.vue')
+        },
+        {
+          path: '/wishlist',
+          name: 'wishlist',
+          component: () => import('../views/wish/wishlist.vue')
         },
       ]
     },

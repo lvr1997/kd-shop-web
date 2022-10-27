@@ -33,15 +33,21 @@
     </a-layout-sider>
     <a-layout>
       <a-layout-header :style="{ background: '#fff', padding: 0 }">
-        <MenuUnfoldOutlined class="trigger" v-show="collapsed" @click="() => (collapsed = !collapsed)" />
-        <MenuFoldOutlined class="trigger" v-show="!collapsed" @click="() => (collapsed = !collapsed)" />
-       
+        <MenuUnfoldOutlined
+          class="trigger"
+          v-show="collapsed"
+          @click="() => (collapsed = !collapsed)"
+        />
+        <MenuFoldOutlined
+          class="trigger"
+          v-show="!collapsed"
+          @click="() => (collapsed = !collapsed)"
+        />
+
         <span>网站管理</span>
       </a-layout-header>
       <a-layout-content :style="{ margin: '24px 16px 0' }">
-        <div
-          :style="{ padding: '24px', background: '#fff', minHeight: '360px' }"
-        >
+        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
           <router-view></router-view>
         </div>
       </a-layout-content>
@@ -52,7 +58,7 @@
   </a-layout>
 </template>
 
-<script>
+<script setup lang="ts">
 import {
   UserOutlined,
   VideoCameraOutlined,
@@ -60,36 +66,29 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from "@ant-design/icons-vue";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
-export default {
-  components: {
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
-    MenuUnfoldOutlined,
-    MenuFoldOutlined,
-  },
+const router = useRouter();
 
-  data() {
-    return {
-      collapsed: false,
-      selectedKeys: [this.$route.path.substr(0, this.$route.path.lastIndexOf('/'))]
-    };
-  },
+const collapsed = ref(false);
+const selectedKeys = ref([
+  router.currentRoute.value.path.substr(
+    0,
+    router.currentRoute.value.path.lastIndexOf("/")
+  ),
+]);
 
-  methods: {
-    onCollapse(collapsed, type) {
-      console.log(collapsed, type);
-    },
+const onCollapse = (collapsed, type) => {
+  console.log(collapsed, type);
+};
 
-    onBreakpoint(broken) {
-      console.log(broken);
-    },
+const onBreakpoint = (broken) => {
+  console.log(broken);
+};
 
-    routerClick({ item, key, keyPath }) {
-      this.selectedKeys = [key]
-    },
-  },
+const routerClick = ({ item, key, keyPath }) => {
+  selectedKeys.value = [key];
 };
 </script>
 
@@ -125,7 +124,7 @@ export default {
   cursor: pointer;
   transition: color 0.3s;
 }
- 
+
 .trigger:hover {
   color: #1890ff;
 }

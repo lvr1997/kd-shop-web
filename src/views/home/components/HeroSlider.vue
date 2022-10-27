@@ -46,7 +46,7 @@
 
   .single-slider {
     height: auto;
-    background-image: url("../../assets/slider.jpg");
+    background-image: url("../../../assets/slider.jpg");
     background-color: #eae6d8;
     background-size: contain;
     background-position: right;

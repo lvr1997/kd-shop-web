@@ -11,10 +11,10 @@
           <div class="class-lg-12">
             <div class="input-line image">
               <!--    上传后的图片   -->
-              <!--                            <div class="uploaded">-->
-              <!--                                <img class="good-image" src="" alt="">-->
-              <!--                                <CloseCircleOutlined />-->
-              <!--                            </div>-->
+              <div class="uploaded">
+                  <img class="good-image" src="" alt="">
+                  <CloseCircleOutlined />
+              </div>
 
               <div class="layui-box layui-upload-button">
                 <form
@@ -142,10 +142,10 @@
                   </div>
                 </div>
                 <div class="publish-button mt-20">
-                  <button type="submit" class="btn theme-btn">保存</button>
-                  <button type="submit" class="btn theme-btn">
+                  <a-button type="default" class="btn theme-btn">保存</a-button>
+                  <a-button type="primary" class="btn theme-btn">
                     保存并发布
-                  </button>
+                  </a-button>
                 </div>
               </div>
             </div>
@@ -153,11 +153,16 @@
         </form>
       </div>
     </section>
+
+    <ShopService/>
+    <ShopNewsletter/>
   </main>
 </template>
 
 <script setup lang="ts">
 import Breadcrumb from "@/components/Breadcrumbs.vue";
+import ShopService from '../home/components/ShopService.vue';
+import ShopNewsletter from '../home/components/ShopNewsletter.vue';
 import { PlusCircleOutlined,PlusSquareOutlined,MinusSquareOutlined } from "@ant-design/icons-vue";
 import { ref } from "vue";
 
@@ -170,7 +175,7 @@ const handleShowBuyLink = () => {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .country-select {
 
   margin-bottom: 30px;
@@ -351,7 +356,11 @@ const handleShowBuyLink = () => {
 }
 
 .publish-button {
-  text-align: right;
+  text-align: center;
+  margin-bottom: 50px;
+  &.mt-20 {
+    margin-top: 20px;
+  }
 }
 .publish-button button:first-child {
   border: #eaedff solid 1px;
@@ -365,7 +374,11 @@ const handleShowBuyLink = () => {
 
 .buy-link-btn {
   position: absolute;
-  padding: 15px 20px;
+  padding: 5px 10px;
+  margin-left: 15px;
+  margin-top: 10px;
+  background: #fff;
+  border: none;
 }
 
 .form-radio-group {
