@@ -4,7 +4,7 @@
             <a-row>
                 <a-col :lg="8" :md="12">
                     <div class="single-banner">
-                        <img src="../../assets/images/banners/mini-banner1.jpg" alt="#">
+                        <img src="@/assets/images/banners/mini-banner1.jpg" alt="#">
                         <div class="content">
                             <p>Man's Collectons</p>
                             <h3>Summer travel <br> collection</h3>
@@ -14,7 +14,7 @@
                 </a-col>
                 <a-col :lg="8" :md="12">
                     <div class="single-banner">
-                        <img src="../../assets/images/banners/mini-banner2.jpg" alt="#">
+                        <img src="@/assets/images/banners/mini-banner2.jpg" alt="#">
                         <div class="content">
                             <p>Bag Collectons</p>
                             <h3>Awesome Bag <br> 2020</h3>
@@ -24,7 +24,7 @@
                 </a-col>
                 <a-col :lg="8">
                     <div class="single-banner tab-height">
-                        <img src="../../assets/images/banners/mini-banner3.jpg" alt="#">
+                        <img src="@/assets/images/banners/mini-banner3.jpg" alt="#">
                         <div class="content">
                             <p>Flash Sale</p>
                             <h3>Mid Season <br> Up to <span>40%</span> Off</h3>

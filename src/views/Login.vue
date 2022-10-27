@@ -1,8 +1,9 @@
 <template>
-  <Breadcrumbs />
+  <Breadcrumbs title="Login" :nav="['Home','Login']"/>
   <section class="shop login section">
     <div class="container">
       <a-row>
+        <!--  登录板块  开始  -->
         <a-col :lg="12" :span="24">
           <div class="login-form">
             <h2>Login</h2>
@@ -23,7 +24,7 @@
                 name="username"
                 :rules="[{ required: true, message: 'Please input your username!' }]"
               >
-                <a-input v-model:value="formState.username" size="large"/>
+                <a-input v-model:value="formState.username" size="large" />
               </a-form-item>
 
               <a-form-item
@@ -31,7 +32,7 @@
                 name="password"
                 :rules="[{ required: true, message: 'Please input your password!' }]"
               >
-                <a-input-password v-model:value="formState.password" size="large"/>
+                <a-input-password v-model:value="formState.password" size="large" />
               </a-form-item>
 
               <a-form-item name="remember" :wrapper-col="{ offset: 0, span: 24 }">
@@ -45,6 +46,43 @@
             </a-form>
           </div>
         </a-col>
+        <!--  登录板块  结束  -->
+
+        <!--  注册板块  开始  -->
+        <a-col :lg="12" :span="24">
+          <div class="register-form">
+            <h2>Register</h2>
+            <div class="register-card">
+              <p class="register-desc">
+                <label class="form-label" for="reg_email"
+                  >Email address <span class="required">*</span></label
+                >
+                <input class="form-input" type="email" name="email" />
+              </p>
+              <p class="register-text">
+                A link to set a new password will be sent to your email address.
+              </p>
+              <div class="register-text2">
+                <p>
+                  Your personal data will be used to support your experience throughout
+                  this website, to manage access to your account, and for other purposes
+                  described in our privacy policy.
+                </p>
+              </div>
+              <p class="register-area">
+                <button
+                  type="submit"
+                  class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit"
+                  name="register"
+                  value="Register"
+                >
+                  Register
+                </button>
+              </p>
+            </div>
+          </div>
+        </a-col>
+        <!--  注册板块  结束  -->
       </a-row>
     </div>
   </section>
@@ -103,7 +141,7 @@ export default defineComponent({
   bottom: 0;
   height: 2px;
   width: 50px;
-  background: #32B87D;
+  background: #32b87d;
   margin-left: -25px;
 }
 .shop.login .login-form p {
@@ -224,5 +262,98 @@ export default defineComponent({
 }
 .shop.login .login-form .lost-pass:hover {
   color: #f7941d;
+}
+
+// 注册 -------------------------------------------------------------
+
+.register-form {
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  .register-card {
+    margin: 2em 0;
+    text-align: left;
+    border-radius: 5px;
+    background: #fff;
+    border: none !important;
+    box-shadow: 0px 0px 15px #3333330f;
+    border: 1px solid #cccccc82 !important;
+    padding: 30px !important;
+    .register-desc {
+      .form-label {
+        color: #333 !important;
+        position: relative;
+        opacity: 1 !important;
+        margin-bottom: 5px !important;
+        margin: 0 !important;
+        font-weight: 500;
+        display: block !important;
+        width: 100%;
+        line-height: 2;
+        .required {
+          color: red;
+          font-weight: 700;
+          border: 0 !important;
+          text-decoration: none;
+          // visibility: hidden;
+        }
+      }
+      .form-input {
+        width: 100% !important;
+        display: block !important;
+        font-weight: 400;
+        box-sizing: border-box;
+        margin: 0;
+        outline: 0;
+        line-height: normal;
+        padding: 13px;
+        margin-bottom: 5px;
+      }
+    }
+    .register-text {
+      color: #757575;
+      line-height: 24px;
+    }
+
+    .register-text2 {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      p {
+        color: #757575;
+        line-height: 24px;
+      }
+    }
+
+    .register-area {
+      padding: 3px;
+      margin: 0 0 6px;
+      button {
+        height: 50px;
+        padding: 0 30px !important;
+        font-size: 14px;
+        background: #333;
+        color: #fff;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        line-height: 50px;
+        margin: 0;
+
+        cursor: pointer;
+        position: relative;
+        text-decoration: none;
+        overflow: visible;
+
+        border-radius: 3px;
+        left: auto;
+
+        border: 0;
+        display: inline-block;
+
+        box-shadow: none;
+        text-shadow: none;
+      }
+    }
+  }
 }
 </style>

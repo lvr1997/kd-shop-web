@@ -33,7 +33,7 @@
                 </li>
                 <li>
                   <poweroff-outlined :style="{ color: '#32B87D' }" />
-                  <a href="javascript:;">登录/退出</a>
+                  <router-link :to="{ path: '/login' }">登录/退出</router-link>
                 </li>
               </ul>
             </div>
@@ -152,7 +152,7 @@
       <div class="container">
         <div class="cat-nav-head">
           <a-row>
-            <a-col v-if="$route.path=='/'" :lg="6">
+            <a-col v-if="$route.path == '/'" :lg="6">
               <div class="all-category">
                 <h3 class="cat-heading"><menu-outlined />CATEGORIES</h3>
                 <ul class="main-category">
@@ -235,10 +235,10 @@
                   <div class="navbar-collapse">
                     <div class="nav-inner">
                       <ul class="nav main-menu menu navbar-nav">
-                        <li class="active"><a href="#">首页</a></li>
-                        <li><a href="#">买闲置</a></li>
-                        <li><a href="#">服务</a></li>
-                        <li>
+                        <li class="active"><router-link :to="{ path: '/'}">首页</router-link></li>
+                        <li><router-link :to="{ path: '/listing'}">买闲置</router-link></li>
+                        <li><router-link :to="{ path: '/shop'}">小铺</router-link></li>
+                        <!-- <li>
                           <a href="#"
                             >小铺 <down-outlined /><span class="new">New</span>
                           </a>
@@ -246,9 +246,10 @@
                             <li><a href="cart.html">我的小铺</a></li>
                             <li><a href="checkout.html">订单管理</a></li>
                           </ul>
-                        </li>
-                        <li><a href="#">树洞</a></li>
-                        <li><a href="contact.html">联系我们</a></li>
+                        </li> -->
+                        
+                        <li><router-link :to="{ path: '/treeHole'}">树洞 <span class="new">New</span></router-link></li>
+                        <li><router-link :to="{ path: '/about'}">联系我们</router-link></li>
                       </ul>
                     </div>
                   </div>

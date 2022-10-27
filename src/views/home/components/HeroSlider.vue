@@ -17,7 +17,7 @@
                       odiy maboriosm.
                     </p>
                     <div class="button">
-                      <a href="#" class="btn">发布闲置</a>
+                      <router-link :to="{path: '/publish'}" class="btn">发布闲置</router-link>
                     </div>
                   </div>
                 </a-col>

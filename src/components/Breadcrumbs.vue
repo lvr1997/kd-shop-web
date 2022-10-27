@@ -1,12 +1,18 @@
 <template>
   <div class="page-breadcrumb">
     <a-breadcrumb separator="→">
-      <a-breadcrumb-item>Home</a-breadcrumb-item>
-      <a-breadcrumb-item>Login</a-breadcrumb-item>
+      <a-breadcrumb-item v-for="(item,index) in nav" :key="index">{{item}}</a-breadcrumb-item>
     </a-breadcrumb>
   </div>
   
 </template>
+
+<script setup lang="ts">
+defineProps<{
+  title?: string
+  nav?: string[]
+}>()
+</script>
 
 <style lang="less" scoped>
 .page-breadcrumb {

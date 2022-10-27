@@ -4,7 +4,7 @@
       <a-row>
         <a-col class="padding-left" :lg="12">
           <div class="image">
-            <img src="../../assets/images/banners/video-bg.png" alt="#" />
+            <img src="@/assets/images/banners/video-bg.png" alt="#" />
           </div>
         </a-col>
         <a-col class="padding-right" :lg="12">

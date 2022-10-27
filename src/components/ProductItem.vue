@@ -1,541 +1,565 @@
 <template>
-	<div class="single-product">
-		<div class="product-img">
-			<a href="javascript:;">
-				<img class="default-img" :src="goodImg" alt="#">
-				<!-- <img class="hover-img" src="static/picture/p10.jpg" alt="#"> -->
-				<!-- <span class="price-dec">30% Off</span>  右上角标签 -->
-				<!-- <span class="out-of-stock">Hot</span> -->
-				<!-- <span class="new">New</span> -->
-			</a>
-			<div class="button-head">
-				<div class="product-action">
-					<a title="Quick View" href="javascript:;" @click="showModal">
-						<eye-outlined /><em>预览</em>
-					</a>
-					<a title="Wishlist" href="#">
-						<heart-outlined /><em>添加至收藏</em>
-					</a>
-					<a title="Compare" href="#">
-						<bar-chart-outlined /><em>与同类比较</em>
-					</a>
-				</div>
-				<div class="product-action-2">
-					<a title="Add to cart" href="#">Add to cart</a>
-				</div>
-			</div>
-		</div>
-		<div class="product-content">
-			<h3><a href="javascript:;">{{ goodName }}</a></h3>
-			<div class="product-price">
-				<span>￥{{ goodPrice }}</span>
-			</div>
-		</div>
-	</div>
+  <div class="single-product">
+    <div class="product-img">
+      <a href="javascript:;">
+        <img class="default-img" :src="goodImg" alt="#" />
+        <!-- <img class="hover-img" src="static/picture/p10.jpg" alt="#"> -->
+        <!-- <span class="price-dec">30% Off</span>  右上角标签 -->
+        <!-- <span class="out-of-stock">Hot</span> -->
+        <!-- <span class="new">New</span> -->
+      </a>
+      <div class="button-head">
+        <div class="product-action">
+          <a title="Quick View" href="javascript:;" @click="showModal">
+            <eye-outlined /><em>预览</em>
+          </a>
+          <a title="Wishlist" href="#"> <heart-outlined /><em>添加至收藏</em> </a>
+          <a title="Compare" href="#"> <bar-chart-outlined /><em>与同类比较</em> </a>
+        </div>
+        <div class="product-action-2">
+          <a title="Add to cart" href="#">Add to cart</a>
+        </div>
+      </div>
+    </div>
+    <div class="product-content">
+      <h3>
+        <a href="javascript:;">{{ goodName }}</a>
+      </h3>
+      <div class="product-price">
+        <span>￥{{ goodPrice }}</span>
+      </div>
+    </div>
+  </div>
 
-	<a-modal v-model:visible="visible" title="Basic Modal" width="80%">
-		<a-row>
-			<!-- 左侧图片轮播 -->
-			<a-col :lg="12" :md="24" :sm="24" :xs="24">
-				<div class="product-gallery">
-					<a-carousel arrows>
-						<template #prevArrow>
-							<div class="custom-slick-arrow" style="left: 10px; z-index: 1">
-								<left-outlined />
-							</div>
-						</template>
-						<template #nextArrow>
-							<div class="custom-slick-arrow" style="right: 10px">
-								<right-outlined />
-							</div>
-						</template>
-						<div class="single-slider">
-							<img src="../assets/images/goods/modal1.png" alt="">
-						</div>
-						<div class="single-slider">
-							<img src="../assets/images/goods/modal2.png" alt="">
-						</div>
-						<div class="single-slider">
-							<img src="../assets/images/goods/modal3.png" alt="">
-						</div>
-						<div class="single-slider">
-							<img src="../assets/images/goods/modal4.png" alt="">
-						</div>
-					</a-carousel>
-				</div>
-			</a-col>
-			<!-- 右侧商品详情 -->
-			<a-col :lg="12" :md="24" :sm="24" :xs="24">
-				<div class="quickview-content">
-					<h2>Flared Shift Dress</h2>
-					<div class="quickview-ratting-review">
-						<div class="quickview-ratting-wrap">
-							<div class="quickview-ratting">
-								<i class="yellow fa fa-star"></i>
-								<i class="yellow fa fa-star"></i>
-								<i class="yellow fa fa-star"></i>
-								<i class="yellow fa fa-star"></i>
-								<i class="fa fa-star"></i>
-							</div>
-							<a href="#"> (1 customer review)</a>
-						</div>
-						<div class="quickview-stock">
-							<span>
-								<check-circle-outlined style="{ color:'#63ab01'}" /> in stock
-							</span>
-						</div>
-					</div>
-					<h3>$29.00</h3>
-					<div class="quickview-peragraph">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit
-							pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam.
-						</p>
-					</div>
-					<div class="add-to-cart">
-						<a href="#" class="btn">Add to cart</a>
-						<a href="#" class="btn min"><heart-outlined /></a>
-						<a href="#" class="btn min"><message-outlined /></a>
-					</div>
-					<div class="default-social">
-						<h4 class="share-now">Share:</h4>
-						<ul>
-							<li><a class="facebook" href="#">
-									<facebook-outlined />
-								</a></li>
-							<li><a class="twitter" href="#">
-									<twitter-outlined />
-								</a></li>
-							<li><a class="youtube" href="#">
-									<youtube-outlined />
-								</a></li>
-						</ul>
-					</div>
-				</div>
-			</a-col>
-		</a-row>
-	</a-modal>
+  <a-modal v-model:visible="visible" title="Basic Modal" width="80%">
+    <a-row>
+      <!-- 左侧图片轮播 -->
+      <a-col :lg="12" :md="24" :sm="24" :xs="24">
+        <div class="product-gallery">
+          <a-carousel arrows>
+            <template #prevArrow>
+              <div class="custom-slick-arrow" style="left: 10px; z-index: 1">
+                <left-outlined />
+              </div>
+            </template>
+            <template #nextArrow>
+              <div class="custom-slick-arrow" style="right: 10px">
+                <right-outlined />
+              </div>
+            </template>
+            <div class="single-slider">
+              <img src="@/assets/images/goods/modal1.png" alt="" />
+            </div>
+            <div class="single-slider">
+              <img src="@/assets/images/goods/modal2.png" alt="" />
+            </div>
+            <div class="single-slider">
+              <img src="@/assets/images/goods/modal3.png" alt="" />
+            </div>
+            <div class="single-slider">
+              <img src="@/assets/images/goods/modal4.png" alt="" />
+            </div>
+          </a-carousel>
+        </div>
+      </a-col>
+      <!-- 右侧商品详情 -->
+      <a-col :lg="12" :md="24" :sm="24" :xs="24">
+        <div class="quickview-content">
+          <h2>Flared Shift Dress</h2>
+          <div class="quickview-ratting-review">
+            <div class="quickview-ratting-wrap">
+              <div class="quickview-ratting">
+                <i class="yellow fa fa-star"></i>
+                <i class="yellow fa fa-star"></i>
+                <i class="yellow fa fa-star"></i>
+                <i class="yellow fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <a href="#"> (1 customer review)</a>
+            </div>
+            <div class="quickview-stock">
+              <span>
+                <check-circle-outlined
+                  style="
+                     {
+                      color: '#63ab01';
+                    }
+                  "
+                />
+                in stock
+              </span>
+            </div>
+          </div>
+          <h3>$29.00</h3>
+          <div class="quickview-peragraph">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste
+              laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam
+              in quos qui nemo ipsum numquam.
+            </p>
+          </div>
+          <div class="add-to-cart">
+            <a href="#" class="btn">Add to cart</a>
+            <a href="#" class="btn min"><heart-outlined /></a>
+            <a href="#" class="btn min"><message-outlined /></a>
+          </div>
+          <div class="default-social">
+            <h4 class="share-now">Share:</h4>
+            <ul>
+              <li>
+                <a class="facebook" href="#">
+                  <facebook-outlined />
+                </a>
+              </li>
+              <li>
+                <a class="twitter" href="#">
+                  <twitter-outlined />
+                </a>
+              </li>
+              <li>
+                <a class="youtube" href="#">
+                  <youtube-outlined />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </a-col>
+    </a-row>
+  </a-modal>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { EyeOutlined, HeartOutlined, BarChartOutlined, LeftOutlined, RightOutlined, CheckCircleOutlined, FacebookOutlined, TwitterOutlined, YoutubeOutlined, MessageOutlined } from '@ant-design/icons-vue';
+import { ref } from "vue";
+import {
+  EyeOutlined,
+  HeartOutlined,
+  BarChartOutlined,
+  LeftOutlined,
+  RightOutlined,
+  CheckCircleOutlined,
+  FacebookOutlined,
+  TwitterOutlined,
+  YoutubeOutlined,
+  MessageOutlined,
+} from "@ant-design/icons-vue";
 
 defineProps<{
-	goodImg?: string
-	goodName?: string
-	goodPrice?: number
-
-}>()
+  goodImg?: string;
+  goodName?: string;
+  goodPrice?: number;
+}>();
 
 const visible = ref<boolean>(false);
 
 const showModal = () => {
-	visible.value = true;
+  visible.value = true;
 };
-
-
 </script>
 
 <style lang="less" scoped>
 .single-product {
-	margin-top: 50px;
+  margin-top: 50px;
 }
 
 .single-product .product-img {
-	position: relative;
-	overflow: hidden;
-	cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .single-product .product-img a {
-	display: block;
-	position: relative;
+  display: block;
+  position: relative;
 }
 
 .single-product .product-img a img {
-	width: 100%;
+  width: 100%;
 }
 
 .single-product .product-img a img.hover-img {
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 1;
-	opacity: 0;
-	transition: opacity 0.5s ease, transform 2s cubic-bezier(0, 0, 0.44, 1.18), -webkit-transform 2s cubic-bezier(0, 0, 0.44, 1.18);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 2s cubic-bezier(0, 0, 0.44, 1.18),
+    -webkit-transform 2s cubic-bezier(0, 0, 0.44, 1.18);
 }
 
 .single-product .product-img a span.price-dec {
-	background-color: #f6931d;
-	display: inline-block;
-	font-size: 11px;
-	color: #fff;
-	right: 20px;
-	top: 20px;
-	padding: 1px 16px;
-	font-weight: 700;
-	border-radius: 0;
-	text-align: center;
-	position: absolute;
-	text-transform: uppercase;
-	border-radius: 30px;
-	height: 26px;
-	line-height: 25px;
+  background-color: #f6931d;
+  display: inline-block;
+  font-size: 11px;
+  color: #fff;
+  right: 20px;
+  top: 20px;
+  padding: 1px 16px;
+  font-weight: 700;
+  border-radius: 0;
+  text-align: center;
+  position: absolute;
+  text-transform: uppercase;
+  border-radius: 30px;
+  height: 26px;
+  line-height: 25px;
 }
 
 .single-product .product-img a span.new {
-	background-color: #8493ca;
-	display: inline-block;
-	font-size: 11px;
-	color: #fff;
-	right: 20px;
-	top: 20px;
-	padding: 1px 16px;
-	font-weight: 700;
-	border-radius: 0;
-	text-align: center;
-	position: absolute;
-	text-transform: uppercase;
-	border-radius: 30px;
-	height: 26px;
-	line-height: 24px;
+  background-color: #8493ca;
+  display: inline-block;
+  font-size: 11px;
+  color: #fff;
+  right: 20px;
+  top: 20px;
+  padding: 1px 16px;
+  font-weight: 700;
+  border-radius: 0;
+  text-align: center;
+  position: absolute;
+  text-transform: uppercase;
+  border-radius: 30px;
+  height: 26px;
+  line-height: 24px;
 }
 
 .single-product .product-img a span.out-of-stock {
-	background-color: #ed1b24;
-	display: inline-block;
-	font-size: 11px;
-	color: #fff;
-	right: 20px;
-	top: 20px;
-	padding: 1px 16px;
-	font-weight: 700;
-	border-radius: 0;
-	text-align: center;
-	position: absolute;
-	text-transform: uppercase;
-	border-radius: 30px;
-	height: 26px;
-	line-height: 24px;
+  background-color: #ed1b24;
+  display: inline-block;
+  font-size: 11px;
+  color: #fff;
+  right: 20px;
+  top: 20px;
+  padding: 1px 16px;
+  font-weight: 700;
+  border-radius: 0;
+  text-align: center;
+  position: absolute;
+  text-transform: uppercase;
+  border-radius: 30px;
+  height: 26px;
+  line-height: 24px;
 }
 
 .single-product .product-img .product-action {
-	display: inline-block;
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	z-index: 99;
-	border-radius: 3px;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  border-radius: 3px;
 }
 
 .single-product .product-img .product-action a {
-	background-color: transparent;
-	color: #333;
-	display: block;
-	font-size: 16px;
-	display: inline-block;
-	margin-right: 15px;
-	text-align: right;
-	height: 52px;
-	position: relative;
-	top: 2px;
+  background-color: transparent;
+  color: #333;
+  display: block;
+  font-size: 16px;
+  display: inline-block;
+  margin-right: 15px;
+  text-align: right;
+  height: 52px;
+  position: relative;
+  top: 2px;
 }
 
 .single-product .product-img .product-action a:last-child {
-	margin-right: 0;
-	border: none;
+  margin-right: 0;
+  border: none;
 }
 
 .single-product .product-img .product-action a span {
-	line-height: 40px;
+  line-height: 40px;
 }
 
 .single-product .product-img .product-action a em {
-	visibility: hidden;
-	position: absolute;
-	background: @primary-color  !important;
-	color: #fff !important;
-	text-align: center;
-	padding: 5px 12px;
-	z-index: 3;
-	opacity: 0;
-	-webkit-transition: opacity .6s, margin .3s;
-	-o-transition: opacity .6s, margin .3s;
-	transition: opacity .6s, margin .3s;
-	font-size: 11px;
-	right: 0;
-	line-height: 14px;
-	top: -12px;
-	margin-top: -5px;
-	margin-right: 0;
-	display: inline-block;
-	width: 120px;
-	border-radius: 15px 0 0 15px;
+  visibility: hidden;
+  position: absolute;
+  background: @primary-color !important;
+  color: #fff !important;
+  text-align: center;
+  padding: 5px 12px;
+  z-index: 3;
+  opacity: 0;
+  -webkit-transition: opacity 0.6s, margin 0.3s;
+  -o-transition: opacity 0.6s, margin 0.3s;
+  transition: opacity 0.6s, margin 0.3s;
+  font-size: 11px;
+  right: 0;
+  line-height: 14px;
+  top: -12px;
+  margin-top: -5px;
+  margin-right: 0;
+  display: inline-block;
+  width: 120px;
+  border-radius: 15px 0 0 15px;
 }
 
 .single-product .product-img .button-head .product-action a em::after {
-	position: absolute;
-	content: "";
-	right: 0;
-	bottom: -12px;
-	border: 6px solid @primary-color;
-	border-left: 0px solid transparent;
-	border-right: 6px solid transparent;
-	border-bottom: 6px solid transparent;
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: -12px;
+  border: 6px solid @primary-color;
+  border-left: 0px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid transparent;
 }
 
 .single-product .product-img .product-action a:hover {
-	color: @primary-color;
+  color: @primary-color;
 }
 
 .single-product .product-img .product-action a:hover em {
-	visibility: visible;
-	opacity: 1;
-	color: #333;
-	background: #fff;
-	margin-top: -12px;
+  visibility: visible;
+  opacity: 1;
+  color: #333;
+  background: #fff;
+  margin-top: -12px;
 }
 
 .single-product .product-img .product-action.pro-action-width-dec a {
-	width: 30px;
-	height: 30px;
-	font-size: 14px;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
 }
 
 .single-product .product-img .product-action.pro-action-width-dec a i {
-	line-height: 30px;
+  line-height: 30px;
 }
 
 .single-product .product-img .product-action.pro-action-width-dec-2 {
-	bottom: 45px;
+  bottom: 45px;
 }
 
 .single-product .product-img .product-action-2 {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	text-align: left;
-	z-index: 99;
-	-webkit-transition: all 250ms ease-out;
-	-o-transition: all 250ms ease-out;
-	transition: all 250ms ease-out;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  text-align: left;
+  z-index: 99;
+  -webkit-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+  transition: all 250ms ease-out;
 }
 
 .single-product .product-img .product-action-2 a {
-	display: block;
-	background-color: transparent;
-	color: #333;
-	text-align: left;
-	font-size: 12px;
-	font-weight: 600;
-	text-transform: uppercase;
-	line-height: 1;
-	display: inline-block;
+  display: block;
+  background-color: transparent;
+  color: #333;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1;
+  display: inline-block;
 }
 
 .single-product .product-img .product-action-2 a:hover {
-	color: @primary-color;
+  color: @primary-color;
 }
 
 .single-product .button-head {
-	background: #fff;
-	display: inline-block;
-	height: 40px;
-	width: 100%;
-	position: absolute;
-	left: 0;
-	bottom: -50px;
-	z-index: 9;
-	height: 50px;
-	line-height: 50px;
-	-webkit-transition: all 0.4s ease;
-	-moz-transition: all 0.4s ease;
-	transition: all 0.4s ease;
+  background: #fff;
+  display: inline-block;
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -50px;
+  z-index: 9;
+  height: 50px;
+  line-height: 50px;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 
 .single-product:hover .button-head {
-	bottom: 0;
+  bottom: 0;
 }
 
 .single-product .product-img .shop-list-quickview {
-	position: absolute;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
-	left: 0;
-	right: 0;
-	text-align: center;
-	z-index: 99;
-	margin-top: 20px;
-	visibility: hidden;
-	opacity: 0;
-	-webkit-transition: all .35s ease 0s;
-	-o-transition: all .35s ease 0s;
-	transition: all .35s ease 0s;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 99;
+  margin-top: 20px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.35s ease 0s;
+  -o-transition: all 0.35s ease 0s;
+  transition: all 0.35s ease 0s;
 }
 
 .single-product .product-img .shop-list-quickview a {
-	color: #000;
-	background-color: #fff;
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	border-radius: 100%;
-	font-size: 18px;
+  color: #000;
+  background-color: #fff;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  font-size: 18px;
 }
 
 .single-product .product-img .shop-list-quickview a:hover {
-	background-color: #222;
-	color: #fff;
+  background-color: #222;
+  color: #fff;
 }
 
 .single-product .product-img .shop-list-quickview a i {
-	line-height: 50px;
+  line-height: 50px;
 }
 
 .single-product .product-content {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 .single-product .product-img:hover.default-overlay::before {
-	background-color: rgba(38, 38, 38, 0.2);
-	z-index: 9;
-	-webkit-transition: all 250ms ease-out;
-	-o-transition: all 250ms ease-out;
-	transition: all 250ms ease-out;
-	pointer-events: none;
-	opacity: 1;
+  background-color: rgba(38, 38, 38, 0.2);
+  z-index: 9;
+  -webkit-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+  transition: all 250ms ease-out;
+  pointer-events: none;
+  opacity: 1;
 }
 
 .single-product .product-img:hover.default-overlay.metro-overlay::before {
-	background-color: rgba(38, 38, 38, 0.4);
-	z-index: 9;
-	-webkit-transition: all 250ms ease-out;
-	-o-transition: all 250ms ease-out;
-	transition: all 250ms ease-out;
-	pointer-events: none;
-	opacity: 1;
+  background-color: rgba(38, 38, 38, 0.4);
+  z-index: 9;
+  -webkit-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+  transition: all 250ms ease-out;
+  pointer-events: none;
+  opacity: 1;
 }
 
 // .single-product .product-img:hover img.hover-img {
 //   opacity: 1;
 // }
 .single-product .product-img:hover img.default-img {
-	transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 .single-product .product-content h3 {
-	line-height: 22px;
+  line-height: 22px;
 }
 
 .single-product .product-content h3 a {
-	font-size: 14px;
-	font-weight: 500;
-	margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
 }
 
 .single-product .product-content h3 a:hover {
-	color: @primary-color;
+  color: @primary-color;
 }
 
 .single-product .product-content .product-price {
-	margin: 6px 0 0 0;
+  margin: 6px 0 0 0;
 }
 
 .single-product .product-content .product-price span {
-	font-size: 15px;
-	font-weight: 500;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .single-product .product-content .product-price span.old {
-	text-decoration: line-through;
-	opacity: .6;
-	margin-right: 2px;
+  text-decoration: line-through;
+  opacity: 0.6;
+  margin-right: 2px;
 }
 
 // 弹窗内样式
 .quickview-content {
-	padding: 40px 40px;
+  padding: 40px 40px;
 
-	h2 {
-		font-size: 22px;
-		font-weight: 600;
-		margin: 0 0 6px;
-	}
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
 
-	.quickview-ratting-review {
-		display: flex;
-		align-items: center;
+  .quickview-ratting-review {
+    display: flex;
+    align-items: center;
 
-		.quickview-ratting-wrap {
-			display: flex;
+    .quickview-ratting-wrap {
+      display: flex;
 
-			.quickview-ratting {
-				.yellow {
-					color: #f5b223
-				}
-			}
+      .quickview-ratting {
+        .yellow {
+          color: #f5b223;
+        }
+      }
 
-			a {
-				color: #262626;
-				font-size: 12px;
-				margin-left: 5px;
-			}
-		}
+      a {
+        color: #262626;
+        font-size: 12px;
+        margin-left: 5px;
+      }
+    }
 
-		.quickview-stock {
-			margin-left: 24px;
+    .quickview-stock {
+      margin-left: 24px;
 
-			span {
-				font-size: 12px;
-			}
-		}
-	}
+      span {
+        font-size: 12px;
+      }
+    }
+  }
 
-	h3 {
-		font-size: 20px;
-		margin: 12px 0 15px;
-		font-weight: 600;
-	}
+  h3 {
+    font-size: 20px;
+    margin: 12px 0 15px;
+    font-weight: 600;
+  }
 
-	.add-to-cart {
-		display: inline-block;
-		margin-top: 20px;
-		.btn {
-			height: 45px;
-			width: auto;
-			padding: 0 42px;
-			line-height: 45px;
-			text-align: center;
-			text-transform: capitalize;
-			margin-right: 5px;
-			border-radius: 0px;
-			background: #333;
-			color: #fff;
-			display: inline-block;
-			font-weight: 500;
-		}
-		.btn.min {
-			padding: 0 20px;
-			font-size: 17px;
-			position: relative;
-			top: 1px;
-			line-height: 45px;
-		}
-	}
-	.default-social {
-		margin-top: 35px;
-		.share-now {
-			margin-right: 12px;
-			display: inline-block;
-			font-size: 14px;
-			font-weight: 400;
-		}
-		ul { display: inline-block;}
-		ul li {
-			margin-right: 12px;
-			display: inline-block;
-		}
-	}
+  .add-to-cart {
+    display: inline-block;
+    margin-top: 20px;
+    .btn {
+      height: 45px;
+      width: auto;
+      padding: 0 42px;
+      line-height: 45px;
+      text-align: center;
+      text-transform: capitalize;
+      margin-right: 5px;
+      border-radius: 0px;
+      background: #333;
+      color: #fff;
+      display: inline-block;
+      font-weight: 500;
+    }
+    .btn.min {
+      padding: 0 20px;
+      font-size: 17px;
+      position: relative;
+      top: 1px;
+      line-height: 45px;
+    }
+  }
+  .default-social {
+    margin-top: 35px;
+    .share-now {
+      margin-right: 12px;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    ul {
+      display: inline-block;
+    }
+    ul li {
+      margin-right: 12px;
+      display: inline-block;
+    }
+  }
 }
 </style>
