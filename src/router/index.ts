@@ -57,4 +57,11 @@ const router = createRouter({
   ]
 })
 
+//路由守卫
+// router.beforeEach((to, from) => {
+//   if(!isAuthenticated && to.name !== 'Login') {
+//     return { name: 'Login' }
+//   }
+// })
+
 export default router

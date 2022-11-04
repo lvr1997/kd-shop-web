@@ -1,5 +1,5 @@
 <template>
-    <div class="preloader" v-show="isLoading">
+    <div class="preloader" v-show="visible">
         <div class="preloader-inner">
             <div class="preloader-icon">
                 <span></span>
@@ -10,9 +10,12 @@
 </template>
 
 <script setup lang="ts">
-    defineProps({
-        isLoading: { type: Boolean, required: true }
-    })
+defineProps({
+    visible: {
+        type: "boolean",
+        default: false
+    }
+})
 </script>
 
 <style lang="less">
