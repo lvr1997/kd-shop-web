@@ -264,7 +264,7 @@
   </header>
 </template>
 
-<script lang="ts">
+<script >
 import { defineComponent, ref } from "vue";
 import {
   PhoneOutlined,
@@ -285,10 +285,10 @@ import {
 export default defineComponent({
   setup() {
     const selectKey = ref("全部");
-    const searchKey = ref<String>("");
+    const searchKey = ref("");
     const options = [{ value: "全部" }, { value: "电子产品" }, { value: "学习书籍" }];
 
-    const onSearch = (value: String) => {
+    const onSearch = (value) => {
       console.log("use value", value);
       console.log("or use this.value", searchKey.value);
     };

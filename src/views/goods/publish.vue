@@ -159,7 +159,7 @@
   </main>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import Breadcrumb from "@/components/Breadcrumbs.vue";
 import ShopService from '../home/components/ShopService.vue';
 import ShopNewsletter from '../home/components/ShopNewsletter.vue';

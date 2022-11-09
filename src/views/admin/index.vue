@@ -58,7 +58,7 @@
   </a-layout>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {
   UserOutlined,
   VideoCameraOutlined,

@@ -59,7 +59,7 @@
   </main>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import Breadcrumb from "../../components/Breadcrumbs.vue";
 import { SendOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons-vue";
 import { ref } from "vue";

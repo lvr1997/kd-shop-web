@@ -1,5 +1,5 @@
 <template>
-  <Breadcrumbs title="Login" :nav="['Home','Login']"/>
+  <Breadcrumbs title="Login" :nav="['Home', 'Login']" />
   <section class="shop login section">
     <div class="container">
       <a-row>
@@ -20,7 +20,7 @@
               @finishFailed="onFinishFailed"
             >
               <a-form-item
-                label="Username"
+                label="手机号"
                 name="username"
                 :rules="[{ required: true, message: 'Please input your username!' }]"
               >
@@ -28,17 +28,37 @@
               </a-form-item>
 
               <a-form-item
-                label="Password"
+                label="密码"
                 name="password"
                 :rules="[{ required: true, message: 'Please input your password!' }]"
               >
                 <a-input-password v-model:value="formState.password" size="large" />
               </a-form-item>
 
-              <a-form-item name="remember" :wrapper-col="{ offset: 0, span: 24 }">
+              <a-form-item
+                label="验证码"
+                name="verifyCode"
+                :wrapper-col="{ offset: 0, span: 24 }"
+                :rules="[{ required: true, message: 'Please input your verify code!' }]"
+              >
+                <a-input
+                  class="verify-input"
+                  v-model:value="formState.verifyCode"
+                  size="large"
+                  width="200"
+                />
+                <img
+                  class="verify-code"
+                  :src="captcha"
+                  alt=""
+                  @click="getVerifyCodeImg"
+                />
+              </a-form-item>
+
+              <!-- <a-form-item name="remember" :wrapper-col="{ offset: 0, span: 24 }">
                 <a-checkbox v-model:checked="formState.remember">Remember me</a-checkbox>
                 <a style="float: right" href="#">Forget your password?</a>
-              </a-form-item>
+              </a-form-item> -->
 
               <a-form-item :wrapper-col="{ offset: 0, span: 16 }">
                 <a-button type="primary" html-type="submit">Login</a-button>
@@ -88,35 +108,30 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, reactive } from "vue";
+<script setup>
+import { reactive, ref } from "vue";
+import { api } from "../api/index";
 
-interface FormState {
-  username: string;
-  password: string;
-  remember: boolean;
-}
-export default defineComponent({
-  setup() {
-    const formState = reactive<FormState>({
-      username: "",
-      password: "",
-      remember: true,
-    });
-    const onFinish = (values: any) => {
-      console.log("Success:", values);
-    };
+const captcha = ref("");
 
-    const onFinishFailed = (errorInfo: any) => {
-      console.log("Failed:", errorInfo);
-    };
-    return {
-      formState,
-      onFinish,
-      onFinishFailed,
-    };
-  },
+const formState = reactive({
+  username: "",
+  password: "",
+  verifyCode: "",
 });
+const onFinish = (values) => {
+  console.log("Success:", values);
+};
+
+const onFinishFailed = (errorInfo) => {
+  console.log("Failed:", errorInfo);
+};
+
+const getVerifyCodeImg = () => {
+  const [e,r] = api.getCaptcha()
+  console.log(r)
+  if(!e && r) captcha.value = r.data
+};
 </script>
 
 <style lang="less" scoped>
@@ -262,6 +277,15 @@ export default defineComponent({
 }
 .shop.login .login-form .lost-pass:hover {
   color: #f7941d;
+}
+
+.verify-input {
+  width: 70%;
+  float: left;
+}
+.verify-code {
+  width: 150px;
+  height: 33px;
 }
 
 // 注册 -------------------------------------------------------------

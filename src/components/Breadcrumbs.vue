@@ -7,11 +7,15 @@
   
 </template>
 
-<script setup lang="ts">
-defineProps<{
-  title?: string
-  nav?: string[]
-}>()
+<script setup>
+defineProps({
+  title: {
+    type: String
+  },
+  nav: {
+    type: Array
+  }
+})
 </script>
 
 <style lang="less" scoped>

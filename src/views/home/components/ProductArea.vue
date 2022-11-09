@@ -52,7 +52,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, reactive, onMounted } from "vue";
 import ProductItem from "../../../components/ProductItem.vue"
 
@@ -144,7 +144,7 @@ onMounted(() => {
   });
 });
 
-function tabClick(cid: number) {
+function tabClick(cid) {
   // console.log("点击了"+cid);
   activeKey.value = cid;
   goodsCate.value = goods.value.filter((item) => {

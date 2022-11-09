@@ -68,7 +68,7 @@
   </main>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref } from "vue";
 import Breadcrumb from "@/components/Breadcrumbs.vue";
 import ShopService from "../home/components/ShopService.vue";
@@ -76,7 +76,7 @@ import ShopNewsletter from "../home/components/ShopNewsletter.vue";
 
 const title = "结算";
 const nav = ["Home", "Checkout"];
-const payMethod = ref<number>(1)
+const payMethod = ref(1)
 </script>
 
 <style lang="less" scoped>

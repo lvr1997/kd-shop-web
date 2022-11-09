@@ -35,7 +35,7 @@
     </section>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { RocketOutlined,InteractionOutlined, LockOutlined, TagOutlined } from '@ant-design/icons-vue'
 
 </script>

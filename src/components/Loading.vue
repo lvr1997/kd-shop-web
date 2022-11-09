@@ -9,7 +9,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 defineProps({
     visible: {
         type: "boolean",

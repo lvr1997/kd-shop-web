@@ -143,7 +143,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref } from "vue";
 import Breadcrumb from "../../components/Breadcrumbs.vue";
 import ProductItem from "@/components/ProductItem.vue";
@@ -160,7 +160,7 @@ import p31 from "@/assets/images/goods/p31.jpg";
 const title = "Shop";
 const nav = ["Home", "Shop"];
 
-const price = ref<[number, number]>([20, 50]);
+const price = ref([20, 50]);
 
 const goods = ref([
   {

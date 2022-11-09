@@ -41,10 +41,10 @@ export default defineConfig({
     strictPort: false,
     open: "http://localhost:5173/home",
     proxy: {
-      '/api': {
-        target: 'https://localhost:3000',
+      '/': {
+        target: 'http://localhost:3000',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, "")
+        // rewrite: (path) => path.replace(/^\/api/, "")
       }
     }
   }

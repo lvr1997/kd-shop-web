@@ -128,7 +128,7 @@
     </a-row>
   </a-modal>
 </template>
-<script lang="ts" setup>
+<script setup>
 import { ref } from "vue";
 import {
   EyeOutlined,
@@ -143,13 +143,19 @@ import {
   MessageOutlined,
 } from "@ant-design/icons-vue";
 
-defineProps<{
-  goodImg?: string;
-  goodName?: string;
-  goodPrice?: number;
-}>();
+defineProps({
+  goodImg: {
+    type: String
+  },
+  goodName: {
+    type: String
+  },
+  goodPrice: {
+    type: Number
+  },
+});
 
-const visible = ref<boolean>(false);
+const visible = ref(false);
 
 const showModal = () => {
   visible.value = true;

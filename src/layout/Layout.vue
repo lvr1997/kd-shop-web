@@ -7,7 +7,7 @@
     <MyFooter />
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { RouterView } from 'vue-router'
 import MyHeader from '@/components/MyHeader.vue'
 import MyFooter from '@/components/MyFooter.vue'
