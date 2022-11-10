@@ -1,4 +1,4 @@
-import { Get } from "../server";
+import { Get,Post } from "../server";
 
 //获取用户信息
 export function getUserInfo(id) {
@@ -7,12 +7,12 @@ export function getUserInfo(id) {
 
 //获取验证码
 export function getCaptcha() {
-  return Get("/user/captcha?time="+new Date().getTime())
+  return Get("/api/users/captcha?time="+new Date().getTime())
 }
 
 //登录
 export function login(data) {
-  return Get("/user/login", data)
+  return Post("/api/users/login", data)
 }
 
 export const userApi = {

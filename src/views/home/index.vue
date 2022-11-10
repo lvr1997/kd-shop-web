@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import HeroSlider from './components/HeroSlider.vue'
 import Banner from './components/Banner.vue'
 import ProductArea from './components/ProductArea.vue'

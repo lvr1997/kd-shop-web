@@ -47,12 +47,11 @@
                   size="large"
                   width="200"
                 />
-                <img
+                <div
                   class="verify-code"
-                  :src="captcha"
-                  alt=""
+                  v-html="captcha"
                   @click="getVerifyCodeImg"
-                />
+                ></div>
               </a-form-item>
 
               <!-- <a-form-item name="remember" :wrapper-col="{ offset: 0, span: 24 }">
@@ -110,7 +109,12 @@
 
 <script setup>
 import { reactive, ref } from "vue";
+import {useRouter} from 'vue-router'
+import { useLoginInfoStore } from "../stores/loginInfo"
 import { api } from "../api/index";
+
+const router = useRouter()
+const store = useLoginInfoStore()
 
 const captcha = ref("");
 
@@ -121,16 +125,17 @@ const formState = reactive({
 });
 const onFinish = (values) => {
   console.log("Success:", values);
+  store.loginAction(values)
+  router.push('/')
 };
 
 const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);
 };
 
-const getVerifyCodeImg = () => {
-  const [e,r] = api.getCaptcha()
-  console.log(r)
-  if(!e && r) captcha.value = r.data
+const getVerifyCodeImg = async () => {
+  const [e,r] = await api.getCaptcha()
+  if(!e && r) captcha.value = r
 };
 </script>
 
@@ -281,11 +286,14 @@ const getVerifyCodeImg = () => {
 
 .verify-input {
   width: 70%;
+  height: 50px;
+  padding: 0 12px;
   float: left;
 }
 .verify-code {
   width: 150px;
-  height: 33px;
+  height: 50px;
+  float: right;
 }
 
 // 注册 -------------------------------------------------------------

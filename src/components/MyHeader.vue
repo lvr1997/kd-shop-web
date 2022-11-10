@@ -27,13 +27,13 @@
                   <clock-circle-outlined :style="{ color: '#32B87D' }" />
                   <a href="#">7+24h</a>
                 </li>
-                <li>
+                <li v-if="store.username!=''">
                   <user-outlined :style="{ color: '#32B87D' }" />
-                  <a href="#">My account</a>
+                  <a href="#">{{ store.username }}, 离开</a>
                 </li>
-                <li>
+                <li v-else>
                   <poweroff-outlined :style="{ color: '#32B87D' }" />
-                  <router-link :to="{ path: '/login' }">登录/退出</router-link>
+                  <router-link :to="{ path: '/login' }">登录</router-link>
                 </li>
               </ul>
             </div>
@@ -235,9 +235,13 @@
                   <div class="navbar-collapse">
                     <div class="nav-inner">
                       <ul class="nav main-menu menu navbar-nav">
-                        <li class="active"><router-link :to="{ path: '/'}">首页</router-link></li>
-                        <li><router-link :to="{ path: '/listing'}">买闲置</router-link></li>
-                        <li><router-link :to="{ path: '/shop'}">小铺</router-link></li>
+                        <li class="active">
+                          <router-link :to="{ path: '/' }">首页</router-link>
+                        </li>
+                        <li>
+                          <router-link :to="{ path: '/listing' }">买闲置</router-link>
+                        </li>
+                        <li><router-link :to="{ path: '/shop' }">小铺</router-link></li>
                         <!-- <li>
                           <a href="#"
                             >小铺 <down-outlined /><span class="new">New</span>
@@ -247,9 +251,15 @@
                             <li><a href="checkout.html">订单管理</a></li>
                           </ul>
                         </li> -->
-                        
-                        <li><router-link :to="{ path: '/treeHole'}">树洞 <span class="new">New</span></router-link></li>
-                        <li><router-link :to="{ path: '/about'}">联系我们</router-link></li>
+
+                        <li>
+                          <router-link :to="{ path: '/treeHole' }"
+                            >树洞 <span class="new">New</span></router-link
+                          >
+                        </li>
+                        <li>
+                          <router-link :to="{ path: '/about' }">联系我们</router-link>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -264,8 +274,9 @@
   </header>
 </template>
 
-<script >
-import { defineComponent, ref } from "vue";
+<script setup>
+import { useLoginInfoStore } from "../stores/loginInfo";
+import { ref } from "vue";
 import {
   PhoneOutlined,
   MailOutlined,
@@ -282,40 +293,16 @@ import {
   DownOutlined,
 } from "@ant-design/icons-vue";
 
-export default defineComponent({
-  setup() {
-    const selectKey = ref("全部");
-    const searchKey = ref("");
-    const options = [{ value: "全部" }, { value: "电子产品" }, { value: "学习书籍" }];
+const store = useLoginInfoStore()
 
-    const onSearch = (value) => {
-      console.log("use value", value);
-      console.log("or use this.value", searchKey.value);
-    };
+const selectKey = ref("全部");
+const searchKey = ref("");
+const options = [{ value: "全部" }, { value: "电子产品" }, { value: "学习书籍" }];
 
-    return {
-      selectKey,
-      options,
-      searchKey,
-      onSearch,
-    };
-  },
-  components: {
-    PhoneOutlined,
-    MailOutlined,
-    EnvironmentOutlined,
-    ClockCircleOutlined,
-    UserOutlined,
-    PoweroffOutlined,
-    SearchOutlined,
-    HeartOutlined,
-    ShoppingOutlined,
-    CloseOutlined,
-    MenuOutlined,
-    RightOutlined,
-    DownOutlined,
-  },
-});
+const onSearch = (value) => {
+  console.log("use value", value);
+  console.log("or use this.value", searchKey.value);
+};
 </script>
 
 <style lang="less">
