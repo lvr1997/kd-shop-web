@@ -108,7 +108,7 @@
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
+import { reactive, ref,onMounted } from "vue";
 import {useRouter} from 'vue-router'
 import { useLoginInfoStore } from "../stores/loginInfo"
 import { api } from "../api/index";
@@ -137,6 +137,10 @@ const getVerifyCodeImg = async () => {
   const [e,r] = await api.getCaptcha()
   if(!e && r) captcha.value = r
 };
+
+onMounted(()=>{
+  captcha.value = captcha.value==''? '点击获取验证码' : captcha.value
+})
 </script>
 
 <style lang="less" scoped>
@@ -294,6 +298,11 @@ const getVerifyCodeImg = async () => {
   width: 150px;
   height: 50px;
   float: right;
+  border: 1px solid #ccc;
+  text-align: center;
+  color: #555;
+  line-height: 50px;
+  cursor: pointer;
 }
 
 // 注册 -------------------------------------------------------------

@@ -29,7 +29,7 @@
                 </li>
                 <li v-if="store.username!=''">
                   <user-outlined :style="{ color: '#32B87D' }" />
-                  <a href="#">{{ store.username }}, 离开</a>
+                  <a href="#">{{ store.username }}, 退出</a>
                 </li>
                 <li v-else>
                   <poweroff-outlined :style="{ color: '#32B87D' }" />
