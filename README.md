@@ -13,7 +13,10 @@
 
 前端页面使用Vue3+pinia+vue-router+AntDesignvue3。使用Vite构建工具搭建项目
 
-对于后端服务，我打算基于node+express搭建的项目，完成前后端的接口联调。
+对于后端服务，我主要为基于node+express搭建的项目进行更新，完成前后端的接口联调。
+
+[node+express版本](https://github.com/lvr1997/kd-shop-api)
+[SpringBoot版本](https://github.com/lvr1997/kd-shop)
 
 最后，在时间和精力允许的情况下，我有可能还会引入mock的用法，作为拓展技能
 
@@ -80,7 +83,7 @@ vite相比webpack启动速度更快
 
 - [x] 学生用户登录（前后端）
 
-- [ ] 学生用户注册
+- [x] 学生用户注册
 
 - [ ] 登录后根据角色跳转不同页面
 
@@ -88,15 +91,15 @@ vite相比webpack启动速度更快
 
 - [ ] 全局提示框组件显示可能有问题
 
-- [ ] 上传图片
+- [x] 上传图片
 
-- [ ] 商品发布
+- [x] 商品发布
 
-- [ ] 个人信息页面展示
+- [x] 个人信息获取
 
 - [ ] 顶部栏滑动效果
 
-- [ ] 使用Easymock模拟数据
+- [ ] 使用Easymock模拟数据(扩展项)
 
 ## 🐞项目Bug与踩坑
 
