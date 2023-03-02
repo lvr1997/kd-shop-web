@@ -1,5 +1,4 @@
 <template>
-  <Header />
     <!-- 详情页  start -->
     <section class="text-gray-600 body-font overflow-hidden">
   <div class="container px-5 py-10 mx-auto">
@@ -121,11 +120,8 @@
         </div>
     </section>
     <!-- 详情描述 end -->
-  <Footer />
 </template>
 
 <script setup>
-import Header from "../../components/Header.vue";
-import Footer from "../../components/Footer.vue";
 import { ref } from "vue";
 </script>

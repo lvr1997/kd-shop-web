@@ -1,5 +1,5 @@
 <template>
-  <footer class="text-gray-600 body-font">
+  <footer class="bg-white dark:bg-gray-900 text-gray-600 body-font hidden md:block lg:block">
   <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
     <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
       <img src="../assets/images/logo.png" alt="logo">
@@ -32,7 +32,15 @@
       </a>
     </span>
   </div>
-</footer>
+  </footer>
+  <footer class="bg-white dark:bg-gray-900 text-gray-600 body-font w-[24rem] h-[4rem] fixed z-50 shadow-lg rounded-3xl border-gray-300 left-4 bottom-3 -ml-1/2 lg:hidden md:hidden">
+    <div class="flex justify-center content-center">
+      <img class="w-10 items-centers" src="../assets/icons/user.png" alt="#">
+      <img class="w-10" src="../assets/icons/qianbao.png" alt="#">
+      <img class="w-10" src="../assets/icons/order.png" alt="#">
+      <img class="w-10" src="../assets/icons/message.png" alt="#">
+    </div>
+  </footer>
 </template>
 
 <script setup>

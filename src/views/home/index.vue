@@ -1,226 +1,345 @@
 <template>
-  <Header />
+  <!-- 首页：
+    轮播最新的公告和图片
+   -->
   <!-- Banner start -->
-  <section class="text-gray-600 body-font">
-    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-      <div
-        class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
-      >
-        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
-          Before they sold out <br class="hidden lg:inline-block" />readymade gluten
-        </h1>
-        <p class="mb-8 leading-relaxed">
-          Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant
-          cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag
-          selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.
-        </p>
-        <div class="flex flex-wrap -m-4 text-center justify-center">
-          <div class="p-4 sm:w-1/4 w-1/2">
-        <h2 class="title-font font-medium sm:text-4xl text-3xl text-green-400">2.7K</h2>
-        <p class="leading-relaxed">Users</p>
+  <section class="bg-white dark:bg-gray-900">
+    <div class="container flex flex-col px-6 py-4 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
+      <div class="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
+          <div class="flex justify-center order-2 mt-6 lg:mt-0 lg:space-y-3 lg:flex-col">
+              <button class="w-3 h-3 mx-2 bg-blue-500 rounded-full lg:mx-0 focus:outline-none"></button>
+              <button class="w-3 h-3 mx-2 bg-gray-300 rounded-full lg:mx-0 focus:outline-none hover:bg-blue-500"></button>
+              <button class="w-3 h-3 mx-2 bg-gray-300 rounded-full lg:mx-0 focus:outline-none hover:bg-blue-500"></button>
+              <button class="w-3 h-3 mx-2 bg-gray-300 rounded-full lg:mx-0 focus:outline-none hover:bg-blue-500"></button>
+          </div>
+
+          <div class="max-w-lg lg:mx-12 lg:order-2">
+              <h1 class="text-3xl font-semibold tracking-wide text-gray-800 dark:text-white lg:text-4xl">The best Apple Watch apps</h1>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut quia asperiores alias vero magnam recusandae adipisci ad vitae laudantium quod rem voluptatem eos accusantium cumque.</p>
+              <div class="mt-6">
+                  <a href="#" class="px-6 py-2.5 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none">去发布我的闲置</a>
+              </div>
+          </div>
       </div>
-      <div class="p-4 sm:w-1/4 w-1/2">
-        <h2 class="title-font font-medium sm:text-4xl text-3xl text-green-400">1.8K</h2>
-        <p class="leading-relaxed">Goods</p>
+
+      <div class="flex items-center justify-center w-full h-96 lg:w-1/2">
+          <img class="object-cover w-full h-full max-w-2xl rounded-md" src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80" alt="apple watch photo">
       </div>
-      <div class="p-4 sm:w-1/4 w-1/2">
-        <h2 class="title-font font-medium sm:text-4xl text-3xl text-green-400">35</h2>
-        <p class="leading-relaxed">Orders</p>
-      </div>
-      <div class="p-4 sm:w-1/4 w-1/2">
-        <h2 class="title-font font-medium sm:text-4xl text-3xl text-green-400">4</h2>
-        <p class="leading-relaxed">Products</p>
-      </div>
-        </div>
-      </div>
-      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-        <img
-          class="object-cover object-center rounded"
-          alt="hero"
-          src="https://dummyimage.com/720x600"
-        />
-      </div>
-    </div>
+  </div>
   </section>
+  
   <!-- Banner end -->
   <!-- 最新发布  start  -->
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-wrap w-full mb-8 flex-col items-center text-center">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
-        Pitchfork Kickstarter Taxidermy
-      </h1>
-      <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">
-        Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway
-        tile poke farm-to-table.
-      </p>
-    </div>
-    <div
-      class="flex justify-center overflow-x-auto overflow-y-hidden border-b border-gray-200 whitespace-nowrap dark:border-gray-700"
-    >
-      <button
-        class="inline-flex items-center h-10 px-4 -mb-px text-sm text-center text-green-400 bg-transparent border-b-2 border-green-500 sm:text-base dark:border-green-400 dark:text-green-300 whitespace-nowrap focus:outline-none"
-      >
-        Profile
-      </button>
+  <section class="bg-white dark:bg-gray-900">
+    <div class="container px-6 py-10 mx-auto">
+      <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">Latest Work</h1>
 
-      <button
-        class="inline-flex items-center h-10 px-4 -mb-px text-sm text-center text-gray-700 bg-transparent border-b-2 border-transparent sm:text-base dark:text-white whitespace-nowrap cursor-base focus:outline-none hover:border-gray-400"
-      >
-        Account
-      </button>
+        <div class="flex py-4 mt-4 overflow-x-auto overflow-y-hidden md:justify-center dark:border-gray-700">
+          <button
+              class="h-12 px-8 py-2 -mb-px text-sm text-center text-blue-600 bg-transparent border-b-2 border-blue-500 sm:text-base dark:border-blue-400 dark:text-blue-300 whitespace-nowrap focus:outline-none">
+              Animation
+          </button>
 
-      <button
-        class="inline-flex items-center h-10 px-4 -mb-px text-sm text-center text-gray-700 bg-transparent border-b-2 border-transparent sm:text-base dark:text-white whitespace-nowrap cursor-base focus:outline-none hover:border-gray-400"
-      >
-        Notification
-      </button>
-    </div>
-    <section class="text-gray-600 body-font">
-      <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-wrap -m-4">
-          <!-- one product -->
-          <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a class="group block relative h-48 rounded overflow-hidden">
-              <img
-                alt="ecommerce"
-                class="object-cover object-center w-full h-full block transition-all ease delay-150 group-hover:scale-150 duration-300"
-                src="https://dummyimage.com/420x260"
-              />
-            </a>
+          <button
+              class="h-12 px-8 py-2 -mb-px text-sm text-center text-gray-700 bg-transparent border-b-2 border-gray-200 sm:text-base dark:text-white whitespace-nowrap cursor-base focus:outline-none dark:border-gray-700 dark:hover:border-gray-400 hover:border-gray-400">
+              Web design
+          </button>
 
-            <div class="mt-4">
-              <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
-              <p class="mt-1">$16.00</p>
-            </div>
-          </div>
+          <button
+              class="h-12 px-8 py-2 -mb-px text-sm text-center text-gray-700 bg-transparent border-b-2 border-gray-200 sm:text-base dark:text-white whitespace-nowrap cursor-base focus:outline-none dark:border-gray-700 dark:hover:border-gray-400 hover:border-gray-400">
+              App design
+          </button>
 
-          <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a class="block relative h-48 rounded overflow-hidden">
-              <img
-                alt="ecommerce"
-                class="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/421x261"
-              />
-            </a>
-            <div class="mt-4">
-              <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 class="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
-              <p class="mt-1">$21.15</p>
-            </div>
-          </div>
-          <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a class="block relative h-48 rounded overflow-hidden">
-              <img
-                alt="ecommerce"
-                class="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/422x262"
-              />
-            </a>
-            <div class="mt-4">
-              <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 class="text-gray-900 title-font text-lg font-medium">Neptune</h2>
-              <p class="mt-1">$12.00</p>
-            </div>
-          </div>
-          <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a class="block relative h-48 rounded overflow-hidden">
-              <img
-                alt="ecommerce"
-                class="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/423x263"
-              />
-            </a>
-            <div class="mt-4">
-              <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 class="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
-              <p class="mt-1">$18.40</p>
-            </div>
-          </div>
-          <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a class="block relative h-48 rounded overflow-hidden">
-              <img
-                alt="ecommerce"
-                class="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/424x264"
-              />
-            </a>
-            <div class="mt-4">
-              <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
-              <p class="mt-1">$16.00</p>
-            </div>
-          </div>
-          <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a class="block relative h-48 rounded overflow-hidden">
-              <img
-                alt="ecommerce"
-                class="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/425x265"
-              />
-            </a>
-            <div class="mt-4">
-              <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 class="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
-              <p class="mt-1">$21.15</p>
-            </div>
-          </div>
-          <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a class="block relative h-48 rounded overflow-hidden">
-              <img
-                alt="ecommerce"
-                class="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/427x267"
-              />
-            </a>
-            <div class="mt-4">
-              <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 class="text-gray-900 title-font text-lg font-medium">Neptune</h2>
-              <p class="mt-1">$12.00</p>
-            </div>
-          </div>
-          <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-            <a class="block relative h-48 rounded overflow-hidden">
-              <img
-                alt="ecommerce"
-                class="object-cover object-center w-full h-full block"
-                src="https://dummyimage.com/428x268"
-              />
-            </a>
-            <div class="mt-4">
-              <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                CATEGORY
-              </h3>
-              <h2 class="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
-              <p class="mt-1">$18.40</p>
-            </div>
-          </div>
-        </div>
+          <button
+              class="h-12 px-8 py-2 -mb-px text-sm text-center text-gray-700 bg-transparent border-b-2 border-gray-200 sm:text-base dark:text-white whitespace-nowrap cursor-base focus:outline-none dark:border-gray-700 dark:hover:border-gray-400 hover:border-gray-400">
+              Branding
+          </button>
       </div>
 
-      <button class="flex mx-auto mt-10 text-white bg-green-400 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">更多...</button>
-    </section>
-  </div>
+      <!-- new goods -->
+      <section class="mt-8 space-y-8 lg:mt-12">
+          <div class="flex flex-wrap -m-4">
+            <!-- one product -->
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <div
+                class="flex flex-col items-center justify-center w-full max-w-sm mx-auto"
+              >
+                <div
+                  class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
+                  style="
+                    background-image: url(https://images.unsplash.com/photo-1521903062400-b80f2cb8cb9d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80);
+                  "
+                ></div>
+
+                <div
+                  class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800"
+                >
+                  <h3
+                    class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white"
+                  >
+                    Nike Revolt
+                  </h3>
+
+                  <div
+                    class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700"
+                  >
+                    <span class="font-bold text-gray-800 dark:text-gray-200">$129</span>
+                    <button
+                      class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
+                    >
+                      Add to cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <div
+                class="flex flex-col items-center justify-center w-full max-w-sm mx-auto"
+              >
+                <div
+                  class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
+                  style="
+                    background-image: url(https://images.unsplash.com/photo-1521903062400-b80f2cb8cb9d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80);
+                  "
+                ></div>
+
+                <div
+                  class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800"
+                >
+                  <h3
+                    class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white"
+                  >
+                    Nike Revolt
+                  </h3>
+
+                  <div
+                    class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700"
+                  >
+                    <span class="font-bold text-gray-800 dark:text-gray-200">$129</span>
+                    <button
+                      class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
+                    >
+                      Add to cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <div
+                class="flex flex-col items-center justify-center w-full max-w-sm mx-auto"
+              >
+                <div
+                  class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
+                  style="
+                    background-image: url(https://images.unsplash.com/photo-1521903062400-b80f2cb8cb9d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80);
+                  "
+                ></div>
+
+                <div
+                  class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800"
+                >
+                  <h3
+                    class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white"
+                  >
+                    Nike Revolt
+                  </h3>
+
+                  <div
+                    class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700"
+                  >
+                    <span class="font-bold text-gray-800 dark:text-gray-200">$129</span>
+                    <button
+                      class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
+                    >
+                      Add to cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <div
+                class="flex flex-col items-center justify-center w-full max-w-sm mx-auto"
+              >
+                <div
+                  class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
+                  style="
+                    background-image: url(https://images.unsplash.com/photo-1521903062400-b80f2cb8cb9d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80);
+                  "
+                ></div>
+
+                <div
+                  class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800"
+                >
+                  <h3
+                    class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white"
+                  >
+                    Nike Revolt
+                  </h3>
+
+                  <div
+                    class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700"
+                  >
+                    <span class="font-bold text-gray-800 dark:text-gray-200">$129</span>
+                    <button
+                      class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
+                    >
+                      Add to cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <div
+                class="flex flex-col items-center justify-center w-full max-w-sm mx-auto"
+              >
+                <div
+                  class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
+                  style="
+                    background-image: url(https://images.unsplash.com/photo-1521903062400-b80f2cb8cb9d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80);
+                  "
+                ></div>
+
+                <div
+                  class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800"
+                >
+                  <h3
+                    class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white"
+                  >
+                    Nike Revolt
+                  </h3>
+
+                  <div
+                    class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700"
+                  >
+                    <span class="font-bold text-gray-800 dark:text-gray-200">$129</span>
+                    <button
+                      class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
+                    >
+                      Add to cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <div
+                class="flex flex-col items-center justify-center w-full max-w-sm mx-auto"
+              >
+                <div
+                  class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
+                  style="
+                    background-image: url(https://images.unsplash.com/photo-1521903062400-b80f2cb8cb9d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80);
+                  "
+                ></div>
+
+                <div
+                  class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800"
+                >
+                  <h3
+                    class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white"
+                  >
+                    Nike Revolt
+                  </h3>
+
+                  <div
+                    class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700"
+                  >
+                    <span class="font-bold text-gray-800 dark:text-gray-200">$129</span>
+                    <button
+                      class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
+                    >
+                      Add to cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <div
+                class="flex flex-col items-center justify-center w-full max-w-sm mx-auto"
+              >
+                <div
+                  class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
+                  style="
+                    background-image: url(https://images.unsplash.com/photo-1521903062400-b80f2cb8cb9d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80);
+                  "
+                ></div>
+
+                <div
+                  class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800"
+                >
+                  <h3
+                    class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white"
+                  >
+                    Nike Revolt
+                  </h3>
+
+                  <div
+                    class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700"
+                  >
+                    <span class="font-bold text-gray-800 dark:text-gray-200">$129</span>
+                    <button
+                      class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
+                    >
+                      Add to cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <div
+                class="flex flex-col items-center justify-center w-full max-w-sm mx-auto"
+              >
+                <div
+                  class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
+                  style="
+                    background-image: url(https://images.unsplash.com/photo-1521903062400-b80f2cb8cb9d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80);
+                  "
+                ></div>
+
+                <div
+                  class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800"
+                >
+                  <h3
+                    class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white"
+                  >
+                    Nike Revolt
+                  </h3>
+
+                  <div
+                    class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700"
+                  >
+                    <span class="font-bold text-gray-800 dark:text-gray-200">$129</span>
+                    <button
+                      class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none"
+                    >
+                      Add to cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+
+        <button
+          class="flex mx-auto mt-10 text-white bg-green-400 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+        >
+          更多...
+        </button>
+      </section>
+    </div>
+  </section>
 
   <!-- 最新发布  end  -->
-  <Footer />
 </template>
 
 <script setup>
-import Header from "../../components/Header.vue";
-import Footer from "../../components/Footer.vue";
+
 </script>
