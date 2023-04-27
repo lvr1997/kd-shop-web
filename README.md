@@ -11,9 +11,11 @@
 
 ## ⚒️技术选型
 
-前端页面使用Vue3+pinia+vue-router+AntDesignvue3。使用Vite构建工具搭建项目
+前端页面使用Vue3+pinia+vue-router。使用Vite构建工具搭建项目
 
 对于后端服务，我主要为基于node+express搭建的项目进行更新，完成前后端的接口联调。
+
+**项目个人维护，由于时间和精力原因，只开发vue版本前端项目和node接口包括功能迁移与新功能引入，java版本的SpringBoot后端项目只做功能迁移**
 
 [node+express版本](https://github.com/lvr1997/kd-shop-api)
 [SpringBoot版本](https://github.com/lvr1997/kd-shop)
@@ -21,28 +23,6 @@
 最后，在时间和精力允许的情况下，我有可能还会引入mock的用法，作为拓展技能
 
 kd-shop项目对我而言，我想实现在我职业技术生涯中的一项新的挑战。
-
-### Vue3
-
-kd-shop我想尝试用vue3新增的组合式API来完成这个项目
-
-### Vite
-
-vite相比webpack启动速度更快
-
-### AntDesignVue3
-
-[vue3+vite项目按需引入antdesign](https://flowus.cn/d489fabd-7b30-429a-93cd-77f0085c7f6e)
-
-### Pinia
-
-作为vue3新一代的状态管理插件
-
-三个非常重要的点: state  getter  actions
-
-### axios
-
-[vue3+vite项目引入axios](https://flowus.cn/67decf35-1158-41c9-98b0-6956a608dd27)
 
 ## 📖项目介绍
 

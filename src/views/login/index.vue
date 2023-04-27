@@ -2,87 +2,285 @@
     <!-- 登录 -->
 <section class="bg-white dark:bg-gray-900">
     <div class="container flex items-center justify-center min-h-screen px-6 mx-auto">
-        <form class="w-full max-w-md">
-            <div class="flex justify-center mx-auto">
-                <img class="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt="">
-            </div>
-            
-            <div class="flex items-center justify-center mt-6">
-                <a href="#" class="w-1/3 pb-4 font-medium text-center text-gray-500 capitalize border-b dark:border-gray-400 dark:text-gray-300">
-                    sign in
-                </a>
+        <div id="login">
+    <div class="form-wrap">
+      <ul class="menu-tab">
+        <li
+          @click="data.current_menu = item.type"
+          :class="{ current: data.current_menu === item.type }"
+          v-for="item in data.tab_menu"
+          :key="item.type"
+        >
+          {{ item.label }}
+        </li>
+      </ul>
+      <el-form ref="account_form" :model="data.form" :rules="data.form_rules">
+        <el-form-item prop="username">
+          <label class="form-label">用户名</label>
+          <el-input v-model="data.form.username"></el-input>
+        </el-form-item>
+        <el-form-item prop="password">
+          <label class="form-label">密码</label>
+          <el-input type="password" v-model="data.form.password"></el-input>
+        </el-form-item>
+        <el-form-item prop="passwords" v-if="data.current_menu === 'register'">
+          <label class="form-label">确认密码</label>
+          <el-input type="password" v-model="data.form.passwords"></el-input>
+        </el-form-item>
+        <el-form-item prop="code">
+          <label class="form-label">验证码</label>
+          <el-row :gutter="10">
+            <el-col :span="14">
+              <el-input v-model="data.form.code"></el-input>
+            </el-col>
+            <el-col :span="10">
+              <el-button
+                type="success"
+                class="el-button-block"
+                :loading="data.code_button_loading"
+                :disabled="data.code_button_disabled"
+                @click="handlerGetCode"
+                >{{ data.code_button_text }}</el-button
+              >
+            </el-col>
+          </el-row>
+        </el-form-item>
+        <el-form-item>
+          <el-button
+            type="danger"
+            @click="submitForm"
+            :disabled="data.submit_button_disabled"
+            :loading="data.submit_button_loading"
+            class="el-button-block"
+          >
+            {{ data.current_menu === "login" ? "登录" : "注册" }}
+          </el-button>
+        </el-form-item>
+      </el-form>
+    </div>
+  </div>
 
-                <a href="#" class="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white">
-                    sign up
-                </a>
-            </div>
-
-            <div class="relative flex items-center mt-8">
-                <span class="absolute">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                </span>
-
-                <input type="text" class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username">
-            </div>
-
-            <label for="dropzone-file" class="flex items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                </svg>
-
-                <h2 class="mx-3 text-gray-400">Profile Photo</h2>
-
-                <input id="dropzone-file" type="file" class="hidden" />
-            </label>
-
-            <div class="relative flex items-center mt-6">
-                <span class="absolute">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                </span>
-
-                <input type="email" class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address">
-            </div>
-
-            <div class="relative flex items-center mt-4">
-                <span class="absolute">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
-                </span>
-
-                <input type="password" class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password">
-            </div>
-
-            <div class="relative flex items-center mt-4">
-                <span class="absolute">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
-                </span>
-
-                <input type="password" class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Confirm Password">
-            </div>
-
-            <div class="mt-6">
-                <button class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                    Sign Up
-                </button>
-
-                <div class="mt-6 text-center ">
-                    <a href="#" class="text-sm text-blue-500 hover:underline dark:text-blue-400">
-                        Already have an account?
-                    </a>
-                </div>
-            </div>
-        </form>
     </div>
 </section>
 </template>
 
 <script setup>
+import { reactive, ref, onBeforeUnmount, getCurrentInstance } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+// 校验类
+import {
+  validate_email,
+  validate_password,
+  validate_code,
+} from "../../utils/validate";
+// API
+import { GetCode } from "../../api/index";
 
+// 获取实例上下文
+const { proxy } = getCurrentInstance();
+// store
+const store = useStore();
+// router
+const rotuer = useRouter();
+
+// 用户名校验
+const validate_name_rules = (rule, value, callback) => {
+    let regEmail = validate_email(value);
+    if (value === "") {
+    callback(new Error("请输入邮箱"));
+    } else if (!regEmail) {
+    callback(new Error("邮箱格式不正确"));
+    } else {
+    callback();
+    }
+};
+const validate_password_rules = (rule, value, callback) => {
+      let regPassword = validate_password(value);
+      // 获取“确认密码”
+      //   const passwordsValue = data.form.passwords;
+      if (value === "") {
+        callback(new Error("请输入密码"));
+      } else if (!regPassword) {
+        callback(new Error("请输入>=6并且<=20位的密码，包含数字、字母"));
+      } else {
+        callback();
+      }
+    };
+    // 校验确认密码
+    const validate_passwords_rules = (rule, value, callback) => {
+      // 如果是登录，不需要校验确认密码，默认通过
+      if (data.current_menu === "login") {
+        callback();
+      }
+      let regPassword = validate_password(value);
+      // 获取“密码”
+      const passwordValue = data.form.password;
+      if (value === "") {
+        callback(new Error("请输入密码"));
+      } else if (!regPassword) {
+        callback(new Error("请输入>=6并且<=20位的密码，包含数字、字母"));
+      } else if (passwordValue && passwordValue !== value) {
+        callback(new Error("两次密码不一致"));
+      } else {
+        callback();
+      }
+    };
+    const validate_code_rules = (rule, value, callback) => {
+      let regCode = validate_code(value);
+      if (value === "") {
+        callback(new Error("请输入验证码"));
+      } else if (!regCode) {
+        callback(new Error("请输入6位的验证码"));
+      } else {
+        callback();
+      }
+    };
+
+    const data = reactive({
+      form: {
+        username: "", // 用户名
+        password: "", // 密码
+        passwords: "", // 确认密码
+        code: "", // 验证码
+      },
+      form_rules: {
+        username: [{ validator: validate_name_rules, trigger: "change" }],
+        password: [{ validator: validate_password_rules, trigger: "change" }],
+        passwords: [{ validator: validate_passwords_rules, trigger: "change" }],
+        code: [{ validator: validate_code_rules, trigger: "change" }],
+      },
+      tab_menu: [
+        { type: "login", label: "登录" },
+        { type: "register", label: "注册" },
+      ],
+      current_menu: "login",
+      /**
+       * 获取验证码按钮交互
+       */
+      code_button_disabled: false,
+      code_button_loading: false,
+      code_button_text: "获取验证码",
+      code_button_timer: null,
+      // 提交按钮
+      submit_button_disabled: true,
+      loading: false,
+    });
+ 
+    /** 表单提交 */
+    const account_form = ref(null);
+    // formName
+    const submitForm = () => {
+      account_form.value.validate((valid) => {
+        if (valid) {
+          data.current_menu === "login" ? login() : register();
+        } else {
+          alert("表单验证不通过");
+          return false;
+        }
+      });
+    };
+    /** 注册 */
+    const register = () => {
+      const requestData = {
+        username: data.form.username,
+        password: sha1(data.form.password),
+        code: data.form.code,
+        create: 1,
+      };
+      data.submit_button_loading = true;
+      Register(requestData)
+        .then((response) => {
+          proxy.$message({
+            message: response.message,
+            type: "success",
+          });
+          reset();
+        })
+        .catch(() => {
+          data.submit_button_loading = false;
+        });
+    };
+    /** 登录 */
+    const login = () => {
+      const requestData = {
+        username: data.form.username,
+        password: data.form.password,
+        code: data.form.code,
+      };
+      data.submit_button_loading = true;
+      store
+        .dispatch("app/loginAction", requestData)
+        .then((response) => {
+          data.submit_button_loading = false;
+          proxy.$message({
+            message: response.message,
+            type: "success",
+          });
+          //路由跳转
+          rotuer.push({ path: "/console" });
+          reset();
+        })
+        .catch(() => {
+          data.submit_button_loading = false;
+          console.log("失败");
+        });
+    };
+ 
+    /** 重置 */
+    const reset = () => {
+      // 重置表单
+      proxy.$refs.form.resetFields();
+      // 切回登录模式
+      data.current_menu = "login";
+      // 清除定时器
+      data.code_button_timer && clearInterval(data.code_button_timer);
+      // 获取验证码重置文本
+      data.code_button_text = "获取验证码";
+      // 获取验证码激活
+      data.code_button_disabled = false;
+      // 禁用提交按钮
+      data.submit_button_disabled = true;
+      // 取消提交按钮加载
+      data.submit_button_loading = false;
+    };
+    // 组件销毁之前 - 生命周期
+    onBeforeUnmount(() => {
+      clearInterval(data.code_button_timer); // 清除倒计时
+    });
 </script>
+
+<style scoped>
+#login {
+  height: 100vh;
+  background-color: #344a5f;
+}
+.form-wrap {
+  width: 320px;
+  padding-top: 100px;
+  margin: auto;
+}
+.menu-tab {
+  text-align: center;
+  
+}
+.menu-tab li {
+    display: inline-block;
+    padding: 10px 24px;
+    margin: 0 10px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+  }
+
+.menu-tab li.current {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.form-label {
+  display: block; 
+  color: #fff; 
+  font-size: 14px;
+}
+</style>
