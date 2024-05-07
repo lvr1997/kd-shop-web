@@ -13,12 +13,9 @@
 
 前端页面使用Vue3+pinia+vue-router。使用Vite构建工具搭建项目
 
-对于后端服务，我主要为基于node+express搭建的项目进行更新，完成前后端的接口联调。
-
-**项目个人维护，由于时间和精力原因，只开发vue版本前端项目和node接口包括功能迁移与新功能引入，java版本的SpringBoot后端项目只做功能迁移**
+对于后端服务，基于node+express搭建的项目
 
 [node+express版本](https://github.com/lvr1997/kd-shop-api)
-[SpringBoot版本](https://github.com/lvr1997/kd-shop)
 
 最后，在时间和精力允许的情况下，我有可能还会引入mock的用法，作为拓展技能
 
