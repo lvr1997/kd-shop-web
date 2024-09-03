@@ -3,7 +3,7 @@
     <nav class="bg-white dark:bg-gray-900">
         <div class="container flex flex-col items-center p-6 mx-auto">
             <a href="#" class="mx-auto">
-                <img class="w-auto h-6 sm:h-7" src="../assets/images/logo.png" alt="">
+                <img class="w-auto h-6 sm:h-7" src="../assets/images/logo.svg" alt="">
             </a>
 
             <div class="flex items-center justify-center mt-6 text-gray-600 capitalize dark:text-gray-300">

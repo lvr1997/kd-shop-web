@@ -10,7 +10,6 @@
 
     <section class="bg-white dark:bg-gray-900">
     <div class="container px-6 py-12 mx-auto">
-        <h1 class="text-2xl font-semibold text-gray-800 lg:text-3xl dark:text-white">{{'zhangsan'}}</h1>
         
         <div class="md:mt-8 lg:mt-8 xl:mt-16 md:flex lg:flex lg:-mx-12">
             <div class="hidden md:block lg:block mx-6 lg:mx-12">
@@ -65,7 +64,7 @@
                 </div>
 
                  <!-- 移动端 -->
-                 '<div class="grid grid-cols-1 gap-8 lg:hidden">
+                 <div class="grid grid-cols-1 gap-8 lg:hidden">
                     <div class="flex max-w-md overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 ">
                         <div class="w-1/3 bg-cover">
                             <img src="../../assets/images/goods/p13.jpg" alt="">
@@ -170,5 +169,4 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 </script>

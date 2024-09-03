@@ -1,6 +1,6 @@
 import axios from "axios";
 // 导入element-ElMessage 弹框
-import { ElMessage } from "element-plus";
+// import { ElMessage } from "element-plus";
 // 导入配置的环境变量url
 import baseURL from "./baseURL";
 // 导入路由，没有this，使用路由实例跳转
@@ -41,19 +41,19 @@ http.interceptors.response.use(
     //key = value  status等于200就执行200下的代码 执行完break退出循环
     switch (status) {
       case 200:
-        ElMessage({
-          showClose: true,
-          message: msg,
-          type: "success",
-        });
+        // ElMessage({
+        //   showClose: true,
+        //   message: msg,
+        //   type: "success",
+        // });
         break;
  
       case 401:
-        ElMessage({
-          showClose: true,
-          message: "未授权",
-          type: "error",
-        });
+        // ElMessage({
+        //   showClose: true,
+        //   message: "未授权",
+        //   type: "error",
+        // });
         // console.log(this);
         // this是undefined所以引入路由;
         router.push("/login"); //未授权跳转到login
