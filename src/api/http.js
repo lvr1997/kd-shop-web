@@ -4,11 +4,8 @@ import { ElMessage } from "element-plus";
 // 导入配置的环境变量url
 import baseURL from "./baseURL";
 // 导入路由，没有this，使用路由实例跳转
-import router from "../route/router.ts";
-// 导入main全局配置文件
-import app from "../../src/main";
-// 开启loading
-app.config.globalProperties.$loading.showLoading();
+import router from "../router";
+
 // 创建axios实例
 const http = axios.create({
   baseURL, //配置了跨域,起了别名api,在baseBUL用了别名,这里使用baseURL,配置在下面vue.config.js
@@ -38,8 +35,6 @@ http.interceptors.response.use(
     // 在返回响应之前做一些处理 res是axios的配置对象
     // console.log(res);
  
-    // 关闭loading
-    app.config.globalProperties.$loading.hideLoading();
     // 根据后台状态码统一封装提示信息 就不需要在页面接口在单独写了
     // 这里根据实际接口的嵌套情况和状态码来写 这里只是我的接口嵌套情况
     let { status, msg } = res.data.meta;

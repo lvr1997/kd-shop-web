@@ -65,22 +65,16 @@
 </template>
 
 <script setup>
-import { reactive, ref, onBeforeUnmount, getCurrentInstance } from "vue";
-import { useStore } from "vuex";
+import { useUserStore } from "@/store/user";
+import { getCurrentInstance, onBeforeUnmount, reactive, ref } from "vue";
 import { useRouter } from "vue-router";
-// 校验类
-import {
-  validate_email,
-  validate_password,
-  validate_code,
-} from "../../utils/validate";
 // API
-import { GetCode } from "../../api/index";
+// import { GetCode } from "@/api";
 
 // 获取实例上下文
 const { proxy } = getCurrentInstance();
 // store
-const store = useStore();
+const userStore = useUserStore();
 // router
 const rotuer = useRouter();
 
@@ -209,9 +203,7 @@ const validate_password_rules = (rule, value, callback) => {
         code: data.form.code,
       };
       data.submit_button_loading = true;
-      store
-        .dispatch("app/loginAction", requestData)
-        .then((response) => {
+      userStore.loginAction(requestData).then((response) => {
           data.submit_button_loading = false;
           proxy.$message({
             message: response.message,

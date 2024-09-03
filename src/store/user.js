@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
 import { api } from '../api'
 
-export const useLoginInfoStore = defineStore({
-  id: 'loginInfo',
+export const useUserStore = defineStore({
+  id: 'userStore',
   state: () => ({
     userId: '',
     username: '',
