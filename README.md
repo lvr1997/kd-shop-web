@@ -3,8 +3,8 @@
 > 2024年9月3日，我再次回到这个项目，最重要的是积累和坚持✊
 > 不能放弃！！
 
-![images](https://img.shields.io/badge/vue-3.2-green)
-![images](https://img.shields.io/badge/AntDesign-3.2-blue)
+![images](https://img.shields.io/badge/vue-3.4-green)
+![Static Badge](https://img.shields.io/badge/Radixvue-1.9.5-darkgreen)
 
 🙆‍♀️项目的灵感是来源于我的2019年毕业设计：[科大二手工坊](https://github.com/lvr1997/kd-second-hand-workshop)；科大二手工坊是基于Java语言编写由SSM框架构建，页面是基于jsp+layui编写的，项目相关技术还比较老旧
 
