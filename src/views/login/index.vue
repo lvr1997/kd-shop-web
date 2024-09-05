@@ -46,10 +46,12 @@
 <script setup>
 import { AutoForm } from '@/components/ui/auto-form';
 import { Button } from '@/components/ui/button';
-import { toast } from '@/components/ui/toast';
+import { useToast } from '@/components/ui/toast/use-toast';
 import * as z from 'zod';
 // API
 // import { GetCode } from "@/api";
+
+const { toast } = useToast()
 
 //字段配置
 const fieldConfig = {
@@ -79,9 +81,7 @@ const schema = z.object({
     })
 })
 
-function onSubmit(values) {
-  console.log(values);
-  
+function onSubmit(values) {  
   toast({
     title: 'You submitted the following values:',
     description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
