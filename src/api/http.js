@@ -1,10 +1,12 @@
 import axios from "axios";
-// 导入element-ElMessage 弹框
-// import { ElMessage } from "element-plus";
+// 弹框
+import { useToast } from '@/components/ui/toast/use-toast';
 // 导入配置的环境变量url
-import baseURL from "./baseURL";
+import baseURL from "./baseUrl";
 // 导入路由，没有this，使用路由实例跳转
 import router from "../router";
+
+const { toast } = useToast()
 
 // 创建axios实例
 const http = axios.create({
@@ -41,20 +43,17 @@ http.interceptors.response.use(
     //key = value  status等于200就执行200下的代码 执行完break退出循环
     switch (status) {
       case 200:
-        // ElMessage({
-        //   showClose: true,
-        //   message: msg,
-        //   type: "success",
-        // });
+        toast({
+          title: msg,
+          type: "success",
+        })
         break;
  
       case 401:
-        // ElMessage({
-        //   showClose: true,
-        //   message: "未授权",
-        //   type: "error",
-        // });
-        // console.log(this);
+        toast({
+          title: '未授权',
+          type: "error",
+        })
         // this是undefined所以引入路由;
         router.push("/login"); //未授权跳转到login
         break;

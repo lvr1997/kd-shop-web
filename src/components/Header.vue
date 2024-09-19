@@ -11,7 +11,7 @@
 
                 <router-link :to="{name: 'List'}" class="mx-2 border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 sm:mx-6">买闲置</router-link>
 
-                <router-link :to="{name: 'Shop'}" class="mx-2 border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 sm:mx-6">小铺</router-link>
+                <router-link v-if="userStore.isLogin" :to="{name: 'Shop'}" class="mx-2 border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 sm:mx-6">我的小铺</router-link>
 
                 <!-- <router-link :to="{name: '/goods/list'}" class="mx-2 border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 sm:mx-6">树洞</router-link> -->
                 <DropdownMenu>
@@ -35,7 +35,7 @@
                   </DropdownMenuContent>
                 </DropdownMenu>
 
-                <router-link :to="{name: 'Login'}" class="mx-2 border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 sm:mx-6">
+                <router-link v-if="!userStore.isLogin" :to="{name: 'Login'}" class="mx-2 border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 sm:mx-6">
                     登录→
                 </router-link>
             </div>
@@ -45,12 +45,14 @@
 </template>
 
 <script setup>
+import { useUserStore } from '@/store/user';
 import { Icon } from '@iconify/vue';
 import { useColorMode } from '@vueuse/core';
 import { ref } from "vue";
 
 // Pass { disableTransition: false } to enable transitions
 const mode = useColorMode()
+const userStore = useUserStore()
 
 const isOpen = ref(false)
 
