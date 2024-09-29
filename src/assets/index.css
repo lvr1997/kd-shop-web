@@ -80,9 +80,15 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: Poppins Regular;
+    font-weight: normal;
   }
   @font-face {
     font-family: "Poppins Bold";
     src: url("./fonts/Poppins-Bold.ttf");
+  }
+  @font-face {
+    font-family: "Poppins Regular";
+    src: url(./fonts/Poppins-Regular.otf);
   }
 }
