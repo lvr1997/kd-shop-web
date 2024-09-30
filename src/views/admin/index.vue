@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-full">
-    <div class="shadow">
+    <div class="shadow bg-gray-800">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
@@ -9,7 +9,7 @@
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <RouterLink v-for="item in navigation" :key="item.name" :to="item.href" :class="[item.href === route.path ? 'text-blue-600' : 'hover:text-blue-600', 'text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</RouterLink>
+                <RouterLink v-for="item in navigation" :key="item.name" :to="item.href" :class="[item.href === route.path ? 'text-white' : 'text-gray-300 hover:text-white', 'text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</RouterLink>
               </div>
             </div>
           </div>
@@ -29,7 +29,9 @@
                 <DropdownMenuContent>
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem v-for="item in userNavigation">{{ item.name }}</DropdownMenuItem>
+                  <DropdownMenuItem v-for="item in userNavigation">
+                    <RouterLink :to="item.href">{{ item.name }}</RouterLink>
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -37,11 +39,9 @@
         </div>
       </div>
     </div>
-     
-    <main>
-      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <RouterView/>
-      </div>
+    
+    <main class="bg-gray-100">
+      <RouterView/>
     </main>
   </div>
 </template>
@@ -55,6 +55,7 @@ DropdownMenuLabel,
 DropdownMenuSeparator,
 DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+
 
 const route = useRoute();
 
@@ -71,7 +72,7 @@ const navigation = [
   { name: 'Goods', href: '/admin/goods', current: false },
 ]
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
+  { name: 'Your Profile', href: '/admin/profile' },
   { name: 'Settings', href: '#' },
   { name: 'Sign out', href: '#' },
 ]

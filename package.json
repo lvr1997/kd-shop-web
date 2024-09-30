@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/colors": "^3.0.0",
+    "@tanstack/vue-table": "^8.20.5",
     "@vee-validate/zod": "^4.13.2",
     "@vueuse/core": "^11.0.3",
     "axios": "^1.1.3",

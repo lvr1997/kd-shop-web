@@ -37,32 +37,45 @@ const router = createRouter({
           name: 'Shop',
           component: () => import('../views/user/shop.vue')
         },
-        {
-          path: '/user/info',
-          name: 'Info',
-          component: () => import('../views/user/info.vue')
-        }
       ]
     },
     {
       path: '/admin',
       name: 'Admin',
       component: () => import('../views/admin/index.vue'),
+      redirect: '/admin/dashboard',
       children: [
         {
           path: '/admin/dashboard',
           name: 'Dashboard',
-          component: () => import('../views/admin/components/Dashboard.vue')
+          component: () => import('../views/admin/components/Dashboard.vue'),
+          meta: {
+            title: 'Dashboard'
+          }
         },
         {
           path: '/admin/users',
           name: 'userManage',
-          component: () => import('../views/admin/components/Users.vue')
+          component: () => import('../views/admin/components/Users.vue'),
+          meta: {
+            title: 'User Manage'
+          }
+        },
+        {
+          path: '/admin/profile',
+          name: 'UserProfile',
+          component: () => import('../views/admin/components/UserProfile.vue'),
+          meta: {
+            title: 'User Profile'
+          }
         },
         {
           path: '/admin/goods',
           name: 'GoodsManage',
-          component: () => import('../views/admin/components/Goods.vue')
+          component: () => import('../views/admin/components/Goods.vue'),
+          meta: {
+            title: 'Goods Manage'
+          }
         },
         {
           path: '/admin/order',
