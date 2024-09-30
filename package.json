@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "test": "vitest",
     "build": "run-p build-only",
     "preview": "vite preview --port 4173",
     "build-only": "vite build",
@@ -43,6 +44,7 @@
     "tailwindcss": "^3.4.10",
     "unplugin-auto-import": "^0.15.1",
     "unplugin-vue-components": "^0.24.1",
-    "vite": "^5.4.2"
+    "vite": "^5.4.2",
+    "vitest": "^2.1.1"
   }
 }
