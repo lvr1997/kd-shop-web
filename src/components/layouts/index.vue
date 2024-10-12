@@ -2,10 +2,11 @@
   <BaseHeader v-if="userStore.role == 'STUDENT'" />
   <div class="flex main-container">
     <BaseSide v-if="userStore.role == 'ADMIN'" />
-    <div w="full" py="4">
+    <div w="full">
       <RouterView />
     </div>
   </div>
+  <BaseFooter v-if="userStore.role == 'STUDENT'"/>
 </template>
 
 <script setup lang="ts">

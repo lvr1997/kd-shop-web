@@ -1,41 +1,57 @@
 <template>
-    <div h="full" bg="blue-400 dark:blue-500">
-        <div class="w-[320px] pt-[100px] m-auto">
-            <ul class="text-center">
-                <li class="inline-black px-10 py-12 my-5 text-light text-sm rounded-2 cursor-pointer" @click="data.current_menu = item.type" 
-                    :class="{ 'bg-blueGray' : data.current_menu === item.type }" v-for="item in data.tab_menu" :key="item.type">
-                    {{ item.label }}
-                </li>
-            </ul>
-            <el-form ref="account_form" :model="data.form" :rules="data.form_rules">
+    <div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <img class="mx-auto h-10 w-auto" src="../assets/images/logo.svg" alt="logo_kdshop">
+            <h2 class="mt-8 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">{{ data.type }}</h2>
+        </div>
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <el-form class="space-y-6 mt-5" ref="account_form" :model="data.form" :rules="data.form_rules" label-position="top" size="large">
                 <el-form-item prop="username">
-                    <label class="block text-white text-sm">用户名</label>
-                    <el-input v-model="data.form.username"></el-input>
+                    <el-input v-model="data.form.username" placeholder="用户名/手机号"></el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                    <label class="block text-white text-sm">密码</label>
-                    <el-input type="password" v-model="data.form.password"></el-input>
+                    <el-input type="password" v-model="data.form.password" placeholder="密码"></el-input>
                 </el-form-item>
-                <el-form-item prop="passwords" v-if="data.current_menu === 'register'">
-                    <label class="block text-white text-sm">确认密码</label>
-                    <el-input type="password" v-model="data.form.passwords"></el-input>
+                <el-form-item prop="passwords" v-if="data.type === 'register'">
+                    <el-input type="password" v-model="data.form.passwords" placeholder="确认密码"></el-input>
                 </el-form-item>
                 <el-form-item prop="code">
-                    <label class="block text-white text-sm">验证码</label>
-                    <el-row :gutter="10">
-                        <el-col :span="14">
-                            <el-input v-model="data.form.code"></el-input>
+                    <el-row :gutter="5">
+                        <el-col :span="12">
+                            <el-input v-model="data.form.code" placeholder="验证码"></el-input>
                         </el-col>
-                        <el-col :span="10">
-                            <el-button type="success" class="el-button-block" :loading="data.code_button_loading" :disabled="data.code_button_disabled" @click="handlerGetCode">{{
-                    data.code_button_text }}</el-button>
+                        <el-col :span="12">
+                            <el-button type="success" :loading="data.code_button_loading" :disabled="data.code_button_disabled" @click="handlerGetCode">
+                                {{ data.code_button_text }}
+                            </el-button>
                         </el-col>
                     </el-row>
                 </el-form-item>
+                <el-form-item label-position="left">
+                    <template #label>
+                        <a class="text-xs font-display font-semibold text-gray-500 hover:text-gray-600 cursor-pointer" href="#">
+                            Forgot Password?
+                        </a>
+                    </template>
+                </el-form-item>
                 <el-form-item>
-                    <el-button type="danger" @click="submitForm" :disabled="data.submit_button_disabled" :loading="data.submit_button_loading" class="el-button-block">
-                        {{ data.current_menu === "login" ? "登录" : "注册" }}
+                    <el-button class="w-full" type="primary" @click="submitForm" :disabled="data.submit_button_disabled" :loading="data.loading">
+                        {{ data.type === "login" ? "登录" : "注册" }}
                     </el-button>
+                </el-form-item>
+                <el-form-item>
+                    <template #label>
+                        <div class="text-center">
+                            <el-button v-show="data.type === 'login'" link class="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline"  
+                                            @click="data.type = 'register'">
+                                Not Account? sign up
+                            </el-button>
+                            <el-button link v-show="data.type === 'register'" class="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline"  
+                                            @click="data.type = 'login'">
+                                Have A Account? sign in
+                            </el-button>
+                        </div>
+                    </template>
                 </el-form-item>
             </el-form>
         </div>
@@ -88,7 +104,7 @@ const validate_password_rules = (rule, value, callback) => {
 // 校验确认密码
 const validate_passwords_rules = (rule, value, callback) => {
     // 如果是登录，不需要校验确认密码，默认通过
-    if (data.current_menu === "login") {
+    if (data.type === "login") {
         callback();
     }
     let regPassword = validate_password(value);
@@ -133,7 +149,8 @@ const data = reactive({
         { type: "login", label: "登录" },
         { type: "register", label: "注册" },
     ],
-    current_menu: "login",
+    type: 'login',
+    show_text: "Sign in to your account",
     /**
      * 获取验证码按钮交互
      */
@@ -200,14 +217,14 @@ const handlerGetCode = () => {
         // 执行倒计时
         countdown();
     })
-    .catch(() => {
-        data.code_button_loading = false;
-        data.code_button_text = "获取验证码";
-    });
+        .catch(() => {
+            data.code_button_loading = false;
+            data.code_button_text = "获取验证码";
+        });
 };
 
 /** 倒计时 */
-const countdown = (time?:number) => {
+const countdown = (time?: number) => {
     if (time && typeof time !== "number") {
         return false;
     }
@@ -251,7 +268,7 @@ const register = () => {
         code: data.form.code,
         create: 1,
     };
-    data.submit_button_loading = true;
+    data.loading = true;
     Register(requestData)
         .then((response) => {
             proxy.$message({
@@ -261,7 +278,7 @@ const register = () => {
             reset();
         })
         .catch(() => {
-            data.submit_button_loading = false;
+            data.loading = false;
         });
 };
 /** 登录 */
@@ -271,10 +288,10 @@ const login = () => {
         password: data.form.password,
         code: data.form.code,
     };
-    data.submit_button_loading = true;
+    data.loading = true;
     userStore.testlogin(requestData).then(res => {
-        if(res.code === 200) {
-            if(res.role === 'ADMIN') {
+        if (res.code === 200) {
+            if (res.role === 'ADMIN') {
                 router.push('/admin');
             }
             if (res.role === 'STUDENT') {
@@ -312,7 +329,7 @@ const reset = () => {
     // 禁用提交按钮
     data.submit_button_disabled = true;
     // 取消提交按钮加载
-    data.submit_button_loading = false;
+    data.loading = false;
 };
 // 组件销毁之前 - 生命周期
 onBeforeUnmount(() => {

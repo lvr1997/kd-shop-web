@@ -5,7 +5,7 @@ const routes = [
     { 
       path: '/', 
       name: 'Layout',
-      redirect: '/admin',
+      redirect: '/front',
       component: Layout,
       children: [
         {
@@ -17,13 +17,21 @@ const routes = [
           }
         },
         {
+          path: '/admin/user',
+          name: 'User',
+          component: () => import(`~/pages/admin/User.vue`),
+          meta: {
+            title: 'User'
+          }
+        },
+        {
           path: '/front',
           name: 'FrontHome',
           component: () => import(`~/pages/front/Home.vue`),
           meta: {
             title: 'Welcome'
           }
-        }
+        },
       ]
     },
     { path: '/login', name: 'Login', component: Login },

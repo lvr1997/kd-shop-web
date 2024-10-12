@@ -3,7 +3,7 @@ import { ElMessage } from "element-plus";
 import { ref } from "vue";
 import Logos from "~/components/Logos.vue";
 
-const msg = "Hello Element Plus + Vite + Vue 3 + TypeScript";
+const msg = "Hello Vite + Vue 3 + Element Plus";
 
 const count = ref(0);
 const input = ref("element-plus");
