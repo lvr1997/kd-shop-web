@@ -1,6 +1,6 @@
 <template>
     <footer class="bg-white dark:bg-gray-900 text-gray-600 body-font">
-        <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+        <div class="w-4/5 lg:px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
             <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-500 text-sm">
                 科大二手工坊V2.0
             </a>

@@ -1,9 +1,10 @@
 <template>
   <!-- 后台界面  菜单栏 -->
   <el-menu
-    default-active="2"
+    :default-active="route.path"
     class="el-menu-vertical-demo"
     :collapse="isCollapse"
+    router
     @open="handleOpen"
     @close="handleClose"
   >
@@ -16,41 +17,49 @@
         <el-icon><location /></el-icon>
         <span>后台数据管理</span>
       </template>
-      <el-menu-item index="2-1">轮播图管理</el-menu-item>
-      <el-menu-item index="2-2">闲置管理</el-menu-item>
-      <el-menu-item index="2-3">分类管理</el-menu-item>
-      <el-menu-item index="2-4">举报管理</el-menu-item>
-      <el-menu-item index="2-5">留言管理</el-menu-item>
-      <el-menu-item index="2-6">订单管理</el-menu-item>
-      <el-menu-item index="2-7">公告管理</el-menu-item>
+      <el-menu-item index="/admin/carousel">轮播图管理</el-menu-item>
+      <el-menu-item index="/admin/goods">闲置管理</el-menu-item>
+      <el-menu-item index="/admin/category">分类管理</el-menu-item>
+      <el-menu-item index="/admin/report">举报管理</el-menu-item>
+      <el-menu-item index="/admin/message">留言管理</el-menu-item>
+      <el-menu-item index="/admin/orders">订单管理</el-menu-item>
+      <el-menu-item index="/admin/notice">公告管理</el-menu-item>
     </el-sub-menu> 
     <el-sub-menu index="4">
       <template #title>
         <el-icon><setting /></el-icon>
         <span>系统管理</span>
       </template>
-      <el-menu-item index="4-1">用户管理</el-menu-item>
-      <el-menu-item index="4-2" disabled>角色管理</el-menu-item>
-      <el-menu-item index="4-3" disabled>学校管理</el-menu-item>
-      <el-menu-item index="4-4">数据字典</el-menu-item>
+      <el-menu-item index="/admin/user">用户管理</el-menu-item>
+      <el-menu-item index="/admin/role" disabled>角色管理</el-menu-item>
+      <el-menu-item index="/admin/school" disabled>学校管理</el-menu-item>
+      <el-menu-item index="/admin/dirt">数据字典</el-menu-item>
     </el-sub-menu>
     <el-menu-item index="3">
       <el-icon><User /></el-icon>
       <template #title>个人中心</template>
+    </el-menu-item>
+
+    <el-menu-item index="4" @click="isCollapse = !isCollapse">
+      <el-icon><Expand /></el-icon>
     </el-menu-item>
   </el-menu>
 </template>
 
 <script lang="ts" setup>
 import {
-  House,
-  Location,
-  Setting,
-  User
+Expand,
+House,
+Location,
+Setting,
+User
 } from "@element-plus/icons-vue";
 import { ref } from "vue";
+import { useRoute } from "vue-router";
 
-const isCollapse = ref(true);
+const route = useRoute();
+
+const isCollapse = ref(false);
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
