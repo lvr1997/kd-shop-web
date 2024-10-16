@@ -1,12 +1,12 @@
 <template>
-  <BaseHeader v-if="userStore.role == 'STUDENT'" />
+  <BaseHeader />
   <div class="flex main-container">
-    <BaseSide v-if="userStore.role == 'ADMIN'" />
+    <!-- <BaseSide v-if="userStore.role == 'ADMIN'" /> -->
     <div w="full">
       <RouterView />
     </div>
   </div>
-  <BaseFooter v-if="userStore.role == 'STUDENT'"/>
+  <BaseFooter/>
 </template>
 
 <script setup lang="ts">

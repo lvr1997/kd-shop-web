@@ -7,7 +7,6 @@
         </el-carousel-item>
       </el-carousel>
     </div>
-    
   </section>
 </template>
 

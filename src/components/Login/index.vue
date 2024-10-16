@@ -1,7 +1,7 @@
 <template>
     <div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <img class="mx-auto h-10 w-auto" src="../assets/images/logo.svg" alt="logo_kdshop">
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm text-center">
+            <img class="mx-auto h-10 w-auto" src="../../assets/images/logo.svg" alt="logo_kdshop">
             <h2 class="mt-8 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">{{ data.type }}</h2>
         </div>
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -21,7 +21,7 @@
                             <el-input v-model="data.form.code" placeholder="验证码"></el-input>
                         </el-col>
                         <el-col :span="12">
-                            <el-button type="success" :loading="data.code_button_loading" :disabled="data.code_button_disabled" @click="handlerGetCode">
+                            <el-button class="w-full" type="success" :loading="data.code_button_loading" :disabled="data.code_button_disabled" @click="handlerGetCode">
                                 {{ data.code_button_text }}
                             </el-button>
                         </el-col>
@@ -62,88 +62,28 @@
 import { getCurrentInstance, onBeforeUnmount, reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "~/store/user";
-import {
-validate_code,
-validate_email,
-validate_password,
-} from "~/utils/validate";
+import { validate_code, validate_phone, validate_password } from "~/utils/validate";
 // import sha1 from "js-sha1";
 // API
 import { GetCode } from "~/api/common";
 import { Register } from "~/api/user";
+import { warnMsg, successMsg } from "~/utils/message";
 
-const { proxy } = getCurrentInstance()
 const userStore = useUserStore();
 const router = useRouter();
 
-//用户名校验
-const validate_name_rules = (rule: string, value: string, callback) => {
-    let regEmail = validate_email(value);
-    if (value === "") {
-        callback(new Error("请输入邮箱"));
-    } else if (!regEmail) {
-        callback(new Error("邮箱格式不正确"));
-    } else {
-        callback();
-    }
-};
-
-const validate_password_rules = (rule, value, callback) => {
-    let regPassword = validate_password(value);
-    // 获取“确认密码”
-    //   const passwordsValue = data.form.passwords;
-    if (value === "") {
-        callback(new Error("请输入密码"));
-    } else if (!regPassword) {
-        callback(new Error("请输入>=6并且<=20位的密码，包含数字、字母"));
-    } else {
-        callback();
-    }
-};
-
-// 校验确认密码
-const validate_passwords_rules = (rule, value, callback) => {
-    // 如果是登录，不需要校验确认密码，默认通过
-    if (data.type === "login") {
-        callback();
-    }
-    let regPassword = validate_password(value);
-    // 获取“密码”
-    const passwordValue = data.form.password;
-    if (value === "") {
-        callback(new Error("请输入密码"));
-    } else if (!regPassword) {
-        callback(new Error("请输入>=6并且<=20位的密码，包含数字、字母"));
-    } else if (passwordValue && passwordValue !== value) {
-        callback(new Error("两次密码不一致"));
-    } else {
-        callback();
-    }
-};
-// 验证码校验
-const validate_code_rules = (rule, value, callback) => {
-    let regCode = validate_code(value);
-    if (value === "") {
-        callback(new Error("请输入验证码"));
-    } else if (!regCode) {
-        callback(new Error("请输入6位的验证码"));
-    } else {
-        callback();
-    }
-};
-
 const data = reactive({
     form: {
-        username: "", // 用户名
+        phone: "", // 手机号
         password: "", // 密码
         passwords: "", // 确认密码
         code: "", // 验证码
     },
     form_rules: {
-        username: [{ validator: validate_name_rules, trigger: "change" }],
-        password: [{ validator: validate_password_rules, trigger: "change" }],
-        passwords: [{ validator: validate_passwords_rules, trigger: "change" }],
-        code: [{ validator: validate_code_rules, trigger: "change" }],
+        phone: [{ pattern: /^1[3|4|5|6|7|8|9][0-9]\d{8}$/, message: "请输入正确的手机号码", trigger: "blur" }],
+        password: [{ required: true, message: "用户密码不能为空", trigger: "blur" }, { min: 5, max: 20, message: "用户密码长度必须介于 5 和 20 之间", trigger: "blur" }, { pattern: /^[^<>"'|\\]+$/, message: "不能包含非法字符：< > \" ' \\\ |", trigger: "blur" }],
+        passwords: [{ required: true, message: "用户密码不能为空", trigger: "blur" }, { min: 5, max: 20, message: "用户密码长度必须介于 5 和 20 之间", trigger: "blur" }, { pattern: /^[^<>"'|\\]+$/, message: "不能包含非法字符：< > \" ' \\\ |", trigger: "blur" }],
+        code: [{ required: true, message: "验证码不能为空", trigger: "blur" }],
     },
     tab_menu: [
         { type: "login", label: "登录" },
@@ -169,27 +109,20 @@ const handlerGetCode = () => {
     const password = data.form.password;
     const passwords = data.form.passwords;
     // 校验用户名
-    if (!validate_email(username)) {
-        proxy.$message.error({
-            message: "用户名不能为空 或 格式不正确",
-            type: "error",
-        });
+    if (!validate_phone(username)) {
+        console.log(1111111111111);
+        
+        warnMsg("用户名不能为空 或 格式不正确");
         return false;
     }
     // 校验密码
     if (!validate_password(password)) {
-        proxy.$message({
-            message: "密码不能为空 或 格式不正确",
-            type: "error",
-        });
+        warnMsg("密码不能为空 或 格式不正确")
         return false;
     }
     // 判断非 登录 时，校验两次密码
     if (data.current_menu === "register" && password !== passwords) {
-        proxy.$message({
-            message: "两次密码不一致",
-            type: "error",
-        });
+        warnMsg("两次密码不一致")
         return false;
     }
 
@@ -206,21 +139,17 @@ const handlerGetCode = () => {
         data.submit_button_disabled = false;
         // 用户名存在
         if (resData.resCode === 1024) {
-            proxy.$message.error(resData.message);
+            warnMsg(resData.message);
             return false;
         }
         // 成功 Elementui 提示
-        proxy.$message({
-            message: resData.message,
-            type: "success",
-        });
+        successMsg(resData.message)
         // 执行倒计时
         countdown();
-    })
-        .catch(() => {
-            data.code_button_loading = false;
-            data.code_button_text = "获取验证码";
-        });
+    }).catch(() => {
+        data.code_button_loading = false;
+        data.code_button_text = "获取验证码";
+    });
 };
 
 /** 倒计时 */
@@ -231,7 +160,7 @@ const countdown = (time?: number) => {
     let second = time || 60; // 默认时间
     data.code_button_loading = false; // 取消加载
     data.code_button_disabled = true; // 禁用按钮
-    data.code_button_text = `倒计进${second}秒`; // 按钮文本
+    data.code_button_text = `倒计时${second}秒`; // 按钮文本
     // 判断是否存在定时器，存在则先清除
     if (data.code_button_timer) {
         clearInterval(data.code_button_timer);
@@ -255,7 +184,7 @@ const submitForm = () => {
         if (valid) {
             data.current_menu === "login" ? login() : register();
         } else {
-            alert("表单验证不通过");
+            warnMsg("表单验证不通过");
             return false;
         }
     });
@@ -271,10 +200,7 @@ const register = () => {
     data.loading = true;
     Register(requestData)
         .then((response) => {
-            proxy.$message({
-                message: response.message,
-                type: "success",
-            });
+            successMsg(response.message)
             reset();
         })
         .catch(() => {
@@ -301,10 +227,7 @@ const login = () => {
     })
     // userStore.LoginAction(requestData).then((response) => {
     //     data.submit_button_loading = false;
-    //     proxy.$message({
-    //         message: response.message,
-    //         type: "success",
-    //     });
+    //     successMsg(response.message)
     //     //路由跳转
     //     router.push({ path: "/" });
     //     reset();

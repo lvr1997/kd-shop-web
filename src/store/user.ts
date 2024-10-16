@@ -4,9 +4,8 @@ import { RequestData } from "~/types/user_type";
 
 export const useUserStore = defineStore("user", {
     state: () => ({
-        username: "测试用户",
-        role: 'ADMIN',
-        // role: 'STUDENT',
+        username: "",
+        role: 'STUDENT',
     }),
     getters: {
        

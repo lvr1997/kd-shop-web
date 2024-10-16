@@ -8,7 +8,7 @@
     @open="handleOpen"
     @close="handleClose"
   >
-    <el-menu-item index="1">
+    <el-menu-item index="/admin">
       <el-icon><House /></el-icon>
       <template #title>首页</template>
     </el-menu-item>
@@ -25,7 +25,7 @@
       <el-menu-item index="/admin/orders">订单管理</el-menu-item>
       <el-menu-item index="/admin/notice">公告管理</el-menu-item>
     </el-sub-menu> 
-    <el-sub-menu index="4">
+    <el-sub-menu index="3">
       <template #title>
         <el-icon><setting /></el-icon>
         <span>系统管理</span>
@@ -35,24 +35,19 @@
       <el-menu-item index="/admin/school" disabled>学校管理</el-menu-item>
       <el-menu-item index="/admin/dirt">数据字典</el-menu-item>
     </el-sub-menu>
-    <el-menu-item index="3">
+    <el-menu-item index="4">
       <el-icon><User /></el-icon>
       <template #title>个人中心</template>
-    </el-menu-item>
-
-    <el-menu-item index="4" @click="isCollapse = !isCollapse">
-      <el-icon><Expand /></el-icon>
     </el-menu-item>
   </el-menu>
 </template>
 
 <script lang="ts" setup>
 import {
-Expand,
-House,
-Location,
-Setting,
-User
+  House,
+  Location,
+  Setting,
+  User
 } from "@element-plus/icons-vue";
 import { ref } from "vue";
 import { useRoute } from "vue-router";
