@@ -23,15 +23,12 @@ export const useUserStore = defineStore("user", {
         },
         testlogin(requestData: RequestData) {
             let res: any;
-            if(requestData.username === 'admin' && requestData.password === 'admin') {
-                this.username = requestData.username
-                this.role = 'ADMIN'
-                res =  { code: 200, msg: '登录成功', role: 'ADMIN' }
-            } 
-            if(requestData.username === 'student' && requestData.password === '123456') {
+            if(requestData.username === '13212341234' && requestData.password === '123456aa') {
                 this.username = requestData.username
                 this.role = 'STUDENT'
                 res =  { code: 200, msg: '登录成功', role: 'STUDENT' }
+            } else {
+                res = { code: 400, msg: '账号或密码错误' }
             }
             return new Promise((resolve) => {
                 resolve(res)

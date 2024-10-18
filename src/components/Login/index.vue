@@ -6,8 +6,8 @@
         </div>
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <el-form class="space-y-6 mt-5" ref="account_form" :model="data.form" :rules="data.form_rules" label-position="top" size="large">
-                <el-form-item prop="username">
-                    <el-input v-model="data.form.username" placeholder="用户名/手机号"></el-input>
+                <el-form-item prop="phone">
+                    <el-input v-model="data.form.phone" placeholder="用户名/手机号"></el-input>
                 </el-form-item>
                 <el-form-item prop="password">
                     <el-input type="password" v-model="data.form.password" placeholder="密码"></el-input>
@@ -59,18 +59,16 @@
 </template>
 
 <script setup lang="ts">
-import { getCurrentInstance, onBeforeUnmount, reactive, ref } from "vue";
-import { useRouter } from "vue-router";
+import { onBeforeUnmount, reactive, ref } from "vue";
 import { useUserStore } from "~/store/user";
-import { validate_code, validate_phone, validate_password } from "~/utils/validate";
+import { validate_password, validate_phone } from "~/utils/validate";
 // import sha1 from "js-sha1";
 // API
-import { GetCode } from "~/api/common";
 import { Register } from "~/api/user";
-import { warnMsg, successMsg } from "~/utils/message";
+import { errorMsg, successMsg, warnMsg } from "~/utils/message";
 
 const userStore = useUserStore();
-const router = useRouter();
+const emits = defineEmits(["closeDialog"]);
 
 const data = reactive({
     form: {
@@ -80,7 +78,7 @@ const data = reactive({
         code: "", // 验证码
     },
     form_rules: {
-        phone: [{ pattern: /^1[3|4|5|6|7|8|9][0-9]\d{8}$/, message: "请输入正确的手机号码", trigger: "blur" }],
+        phone: [{ required: true, pattern: /^1[3|4|5|6|7|8|9][0-9]\d{8}$/, message: "请输入正确的手机号码", trigger: "blur" }],
         password: [{ required: true, message: "用户密码不能为空", trigger: "blur" }, { min: 5, max: 20, message: "用户密码长度必须介于 5 和 20 之间", trigger: "blur" }, { pattern: /^[^<>"'|\\]+$/, message: "不能包含非法字符：< > \" ' \\\ |", trigger: "blur" }],
         passwords: [{ required: true, message: "用户密码不能为空", trigger: "blur" }, { min: 5, max: 20, message: "用户密码长度必须介于 5 和 20 之间", trigger: "blur" }, { pattern: /^[^<>"'|\\]+$/, message: "不能包含非法字符：< > \" ' \\\ |", trigger: "blur" }],
         code: [{ required: true, message: "验证码不能为空", trigger: "blur" }],
@@ -105,51 +103,58 @@ const data = reactive({
 
 // 获取验证码
 const handlerGetCode = () => {
-    const username = data.form.username;
+    const username = data.form.phone;
     const password = data.form.password;
     const passwords = data.form.passwords;
     // 校验用户名
     if (!validate_phone(username)) {
-        console.log(1111111111111);
-        
-        warnMsg("用户名不能为空 或 格式不正确");
+        warnMsg("手机号格式不正确");
         return false;
     }
     // 校验密码
     if (!validate_password(password)) {
-        warnMsg("密码不能为空 或 格式不正确")
+        warnMsg("密码格式不正确")
         return false;
     }
     // 判断非 登录 时，校验两次密码
-    if (data.current_menu === "register" && password !== passwords) {
+    if (data.type === "register" && password !== passwords) {
         warnMsg("两次密码不一致")
         return false;
     }
 
     // 获取验证码接口
     const requestData = {
-        username: data.form.username,
-        module: data.current_menu,
+        username: data.form.phone,
     };
     data.code_button_loading = true;
     data.code_button_text = "发送中";
-    GetCode(requestData).then((response) => {
-        const resData = response;
+
+    setTimeout(() => {
+        const resData = 1234;
         // 激活提交按钮
         data.submit_button_disabled = false;
-        // 用户名存在
-        if (resData.resCode === 1024) {
-            warnMsg(resData.message);
-            return false;
-        }
         // 成功 Elementui 提示
-        successMsg(resData.message)
+        successMsg(resData)
         // 执行倒计时
         countdown();
-    }).catch(() => {
-        data.code_button_loading = false;
-        data.code_button_text = "获取验证码";
-    });
+    }, 2000);   
+    // GetCode(requestData).then((response) => {
+    //     const resData = response;
+    //     // 激活提交按钮
+    //     data.submit_button_disabled = false;
+    //     // 用户名存在
+    //     if (resData.resCode === 1024) {
+    //         warnMsg(resData.message);
+    //         return false;
+    //     }
+    //     // 成功 Elementui 提示
+    //     successMsg(resData.message)
+    //     // 执行倒计时
+    //     countdown();
+    // }).catch(() => {
+    //     data.code_button_loading = false;
+    //     data.code_button_text = "获取验证码";
+    // });
 };
 
 /** 倒计时 */
@@ -177,12 +182,12 @@ const countdown = (time?: number) => {
     }, 1000);
 };
 /** 表单提交 */
-const account_form = ref(null);
+const account_form = ref();
 // formName
 const submitForm = () => {
     account_form.value.validate((valid) => {
         if (valid) {
-            data.current_menu === "login" ? login() : register();
+            data.type === "login" ? login() : register();
         } else {
             warnMsg("表单验证不通过");
             return false;
@@ -192,7 +197,7 @@ const submitForm = () => {
 /** 注册 */
 const register = () => {
     const requestData = {
-        username: data.form.username,
+        username: data.form.phone,
         password: data.form.password,
         code: data.form.code,
         create: 1,
@@ -210,19 +215,18 @@ const register = () => {
 /** 登录 */
 const login = () => {
     const requestData = {
-        username: data.form.username,
+        username: data.form.phone,
         password: data.form.password,
         code: data.form.code,
     };
     data.loading = true;
     userStore.testlogin(requestData).then(res => {
         if (res.code === 200) {
-            if (res.role === 'ADMIN') {
-                router.push('/admin');
-            }
-            if (res.role === 'STUDENT') {
-                router.push('/home');
-            }
+            data.loading = false;
+            emits("closeDialog", false);
+            reset();
+        } else {
+            errorMsg(res.msg)
         }
     })
     // userStore.LoginAction(requestData).then((response) => {
@@ -240,9 +244,9 @@ const login = () => {
 /** 重置 */
 const reset = () => {
     // 重置表单
-    proxy.$refs.form.resetFields();
+    // proxy.$refs.form.resetFields();
     // 切回登录模式
-    data.current_menu = "login";
+    data.type = "login";
     // 清除定时器
     data.code_button_timer && clearInterval(data.code_button_timer);
     // 获取验证码重置文本

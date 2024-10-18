@@ -2,7 +2,6 @@
 import { toggleDark } from "~/composables";
 import { useUserStore } from "~/store/user";
 import Login from "../Login/index.vue";
-import { ref } from "vue";
 
 const userStore = useUserStore();
 
@@ -36,13 +35,13 @@ const closeLoginModal = () => {
               <i inline-flex i="dark:ep-moon ep-sunny" />
             </button>
           </el-menu-item>
-          <el-sub-menu v-if="userStore.username">
+          <el-sub-menu index="4" v-if="userStore.username">
             <template #title>{{ userStore.username }}</template>
-            <el-menu-item index="4-1">个人中心</el-menu-item>
+            <el-menu-item index="/info">个人中心</el-menu-item>
             <el-menu-item>退出登录</el-menu-item>
           </el-sub-menu>
-          <div class="ep-menu-item" v-else>
-            <el-button type="primary" link @click="showLoginDialog">登录</el-button>
+          <div v-else class="ep-menu-item" @click="showLoginDialog" @closeDialog="closeLoginModal">
+            <span link>登录</span>
           </div>
         </el-menu>
       </div>
